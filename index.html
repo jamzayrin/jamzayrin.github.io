@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Operating Systems – Video Compilation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: Cambria, serif; }
+
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* Lively hover effect */
+    .youtube-embed iframe {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 8px;
+    }
+    .youtube-embed iframe:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900">
+
+<!-- NAVIGATION -->
+<nav class="border-b border-slate-300 sticky top-0 bg-white z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="font-bold text-xl text-blue-900">Operating Systems</h1>
+    <div class="space-x-6">
+      <button onclick="showSection('home')" class="font-medium">Home</button>
+      <button onclick="showSection('about')" class="font-medium">About</button>
+      <button onclick="showSection('windows')" class="font-medium">Windows Installation</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="section active">
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold mb-6 text-center">Operating Systems</h2>
+    <p class="mb-4">
+      An <strong>Operating System (OS)</strong> is essential software that enables a computer to function.
+      It manages hardware resources and provides a platform for applications.
+    </p>
+    <p class="mb-4">
+      The OS handles memory, processes, files, and devices while offering a user interface
+      for interaction.
+    </p>
+    <p>
+      Operating systems are used in desktops, servers, and embedded systems to ensure
+      efficiency, security, and stability.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-6 text-center">About</h2>
+    <p class="text-center font-semibold">Jamaica Zyrinne D. Cañas</p>
+    <p class="text-center mb-6">BSIT – NS – T – 2A</p>
+    <p class="mb-4">
+      This website documents installation activities and hands-on laboratory work
+      for the <strong>Operating Systems</strong> course.
+    </p>
+    <p>
+      It features guided installation videos and explanations of different Windows versions.
+    </p>
+  </div>
+</section>
+
+<!-- WINDOWS INSTALLATION -->
+<section id="windows" class="section">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-center">Windows Installation</h2>
+
+    <!-- DROPDOWN -->
+    <div class="max-w-md mx-auto mb-6">
+      <label class="block mb-2 font-medium">Select Windows Version</label>
+      <select id="windowsSelect"
+              onchange="updateWindowsContent()"
+              class="w-full border border-slate-400 px-4 py-2 rounded">
+        <option value="0">Windows 95</option>
+        <option value="1">Windows 98 SE</option>
+        <option value="2">Windows ME</option>
+        <option value="3">Windows NT</option>
+        <option value="4">Windows 2000</option>
+        <option value="5">Windows Server 2003</option>
+        <option value="6">Windows XP</option>
+        <option value="7">Windows Vista</option>
+        <option value="8">Windows 7</option>
+        <option value="9">Windows Server 2008</option>
+        <option value="10">Windows 8.1</option>
+        <option value="11">Windows 10</option>
+      </select>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="border border-slate-300 rounded p-6">
+      <h3 id="winTitle" class="text-2xl font-bold mb-4">Windows 95</h3>
+      <p id="winDesc" class="mb-6">
+        Installing Windows 95 involves booting from DOS and following a guided setup process.
+      </p>
+
+      <!-- YOUTUBE EMBED (FIXED) -->
+      <div class="youtube-embed aspect-video bg-black border border-slate-300 rounded overflow-hidden">
+        <iframe id="winVideo"
+                class="w-full h-full block"
+                title="Windows Installation Video"
+                frameborder="0"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-300 mt-12">
+  <div class="max-w-6xl mx-auto px-6 py-6 text-center text-sm">
+    <p>For Academic Purpose Only</p>
+    <p>© 2026 Jamaica Zyrinne D. Cañas – BSIT-NS-2A</p>
+  </div>
+</footer>
+
+<!-- SCRIPT (BLACK SCREEN FIX INCLUDED) -->
+<script>
+const windowsData = [
+  ["Windows 95", "Installing Windows 95 involves booting from DOS and running setup.", "https://www.youtube-nocookie.com/embed/vpp35T0ac1Q"],
+  ["Windows 98 SE", "Windows 98 SE improves USB and hardware detection.", "https://www.youtube-nocookie.com/embed/5vX4l28YZhY"],
+  ["Windows ME", "Windows ME focuses on home user installation.", "https://www.youtube-nocookie.com/embed/muOEgmR3FZU"],
+  ["Windows NT", "Windows NT emphasizes stability and security.", "https://www.youtube-nocookie.com/embed/ffYG_Jk_evk"],
+  ["Windows 2000", "Windows 2000 refines NT technology.", "https://www.youtube-nocookie.com/embed/Be3wU99qxMc"],
+  ["Windows Server 2003", "Server 2003 focuses on network roles.", "https://www.youtube-nocookie.com/embed/3yET4Ze2TeY"],
+  ["Windows XP", "Windows XP offers a simple guided setup.", "https://www.youtube-nocookie.com/embed/2NAhKOHA74Y"],
+  ["Windows Vista", "Vista introduces a modern setup interface.", "https://www.youtube-nocookie.com/embed/kVO1_dit59I"],
+  ["Windows 7", "Windows 7 improves speed and reliability.", "https://www.youtube-nocookie.com/embed/EZQjyn7cW-A"],
+  ["Windows Server 2008", "Server 2008 enhances security and roles.", "https://www.youtube-nocookie.com/embed/A68ws9xDRic"],
+  ["Windows 8.1", "Windows 8.1 adds touch-friendly setup.", "https://www.youtube-nocookie.com/embed/TO6IwKFGrA0"],
+  ["Windows 10", "Windows 10 automates updates and setup.", "https://www.youtube-nocookie.com/embed/UCAe7hpMlJY"]
+];
+
+function updateWindowsContent() {
+  const index = document.getElementById("windowsSelect").value;
+
+  document.getElementById("winTitle").textContent = windowsData[index][0];
+  document.getElementById("winDesc").textContent = windowsData[index][1];
+
+  const iframe = document.getElementById("winVideo");
+  iframe.src = "";
+  setTimeout(() => {
+    iframe.src = windowsData[index][2];
+  }, 100);
+}
+
+function showSection(id) {
+  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+
+  if (id === "windows") {
+    updateWindowsContent();
+  }
+}
+</script>
+
+</body>
+</html>
