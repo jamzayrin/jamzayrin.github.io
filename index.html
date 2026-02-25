@@ -5,19 +5,16 @@
   <title>Operating Systems – Video Compilation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body { font-family: Cambria, serif; }
 
-    /* paragraphs justified for cleaner appearance */
     .section p {
       text-align: justify;
       text-justify: inter-word;
     }
 
-    /* section switching animation */
     .section {
       display: none;
       opacity: 0;
@@ -28,7 +25,6 @@
       opacity: 1;
     }
 
-    /* navigation button state */
     nav button {
       cursor: pointer;
     }
@@ -38,7 +34,6 @@
       border-bottom: 2px solid #1E3A8A;
     }
 
-    /* Lively hover effect */
     .youtube-embed iframe {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border-radius: 8px;
@@ -52,7 +47,6 @@
 
 <body class="bg-white text-slate-900">
 
-<!-- NAVIGATION -->
 <nav class="border-b border-slate-300 sticky top-0 bg-white z-50">
   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
     <h1 class="font-bold text-xl text-blue-900">Operating Systems</h1>
@@ -64,7 +58,6 @@
   </div>
 </nav>
 
-<!-- HOME -->
 <section id="home" class="section active">
   <div class="max-w-4xl mx-auto px-6 py-16">
     <h2 class="text-4xl font-bold mb-6 text-center">Operating Systems</h2>
@@ -83,10 +76,15 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="section">
   <div class="max-w-4xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-6 text-center">About</h2>
+    <!-- picture box: replace src with your image URL or path -->
+    <div class="mb-6 flex justify-center">
+      <img id="aboutPic" src="https://via.placeholder.com/150" alt="Profile picture"
+           class="w-48 h-48 rounded-full object-cover border border-slate-300" />
+    </div>
+
     <p class="text-center font-semibold">Jamaica Zyrinne D. Cañas</p>
     <p class="text-center mb-6">BSIT – NS – T – 2A</p>
     <p class="mb-4">
@@ -99,12 +97,10 @@
   </div>
 </section>
 
-<!-- WINDOWS INSTALLATION -->
 <section id="windows" class="section">
   <div class="max-w-6xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-8 text-center">Windows Installation</h2>
 
-    <!-- DROPDOWN -->
     <div class="max-w-md mx-auto mb-6">
       <label class="block mb-2 font-medium">Select Windows Version</label>
       <select id="windowsSelect"
@@ -125,14 +121,12 @@
       </select>
     </div>
 
-    <!-- CONTENT -->
     <div class="border border-slate-300 rounded p-6">
       <h3 id="winTitle" class="text-2xl font-bold mb-4">Windows 95</h3>
       <p id="winDesc" class="mb-6">
         Installing Windows 95 involves booting from DOS and following a guided setup process.
       </p>
 
-      <!-- YOUTUBE EMBED (FIXED, constrained width) -->
       <div class="youtube-embed aspect-video bg-black border border-slate-300 rounded overflow-hidden max-w-md mx-auto">
         <iframe id="winVideo"
                 class="w-full h-full block"
@@ -148,7 +142,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="border-t border-slate-300 mt-12">
   <div class="max-w-6xl mx-auto px-6 py-6 text-center text-sm">
     <p>For Academic Purpose Only</p>
@@ -156,10 +149,9 @@
   </div>
 </footer>
 
-<!-- SCRIPT (BLACK SCREEN FIX INCLUDED) -->
 <script>
 const windowsData = [
-  ["Windows 95", "Installing Windows 95 involves booting from DOS and running setup.", "https://youtu.be/vpp35T0ac1Q"],
+  ["Windows 95", "Installing Windows 95 involves booting from DOS and running setup.", "https://www.youtube-nocookie.com/embed/vpp35T0ac1Q"],
   ["Windows 98 SE", "Windows 98 SE improves USB and hardware detection.", "https://www.youtube-nocookie.com/embed/5vX4l28YZhY"],
   ["Windows ME", "Windows ME focuses on home user installation.", "https://www.youtube-nocookie.com/embed/muOEgmR3FZU"],
   ["Windows NT", "Windows NT emphasizes stability and security.", "https://www.youtube-nocookie.com/embed/ffYG_Jk_evk"],
@@ -190,7 +182,6 @@ function showSection(id, btn) {
   document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 
-  // highlight nav button
   if (btn) {
     document.querySelectorAll('nav button').forEach(b => b.classList.remove('active-nav'));
     btn.classList.add('active-nav');
@@ -201,7 +192,7 @@ function showSection(id, btn) {
   }
 }
 
-// mark the first nav item active when page loads
+
 window.addEventListener('DOMContentLoaded', () => {
   const firstBtn = document.querySelector('nav button');
   if (firstBtn) firstBtn.classList.add('active-nav');
