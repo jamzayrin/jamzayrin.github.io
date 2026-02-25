@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Operating Systems – Video Compilation</title>
+  <title>Operating Systems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for black icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pFwD7hCvOqjNabRDXeGb6ir6DDJHJXh/Q1ZGVosQ3bC5ZP165xKXe1O/0pCrx6LrILm1VrK68VQzYtKpD65mYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     body { font-family: Cambria, serif; }
@@ -34,6 +36,17 @@
       border-bottom: 2px solid #1E3A8A;
     }
 
+    /* icon styling */
+    .icon {
+      color: black;
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      text-align: center;
+      margin-right: 0.25rem;
+      font-style: normal;
+    }
+
     .youtube-embed iframe {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border-radius: 8px;
@@ -54,6 +67,7 @@
       <button onclick="showSection('home', this)" class="font-medium">Home</button>
       <button onclick="showSection('about', this)" class="font-medium">About</button>
       <button onclick="showSection('windows', this)" class="font-medium">Windows Installation</button>
+      <button onclick="showSection('labs', this)" class="font-medium">Laboratory Tasks</button>
     </div>
   </div>
 </nav>
@@ -62,16 +76,29 @@
   <div class="max-w-4xl mx-auto px-6 py-16">
     <h2 class="text-4xl font-bold mb-6 text-center">Operating Systems</h2>
     <p class="mb-4">
-      An <strong>Operating System (OS)</strong> is essential software that enables a computer to function.
-      It manages hardware resources and provides a platform for applications.
+      An <strong>Operating System (OS)</strong> is the main software that makes a computer or device work. 
+      It acts like a manager, controlling the hardware like the processor, memory, storage, and input/output devices. 
+      Without an OS, the computer cannot understand what programs are trying to do.
     </p>
     <p class="mb-4">
-      The OS handles memory, processes, files, and devices while offering a user interface
-      for interaction.
+      One of the main tasks of an OS is <strong>memory management</strong>. This means it keeps track of all the data 
+      being used by programs and makes sure they do not interfere with each other. It also decides which program 
+      runs at what time, a process called <strong>process management</strong>, so your computer can multitask smoothly.
+    </p>
+    <p class="mb-4">
+      The OS also manages files on your hard drive or other storage devices. It organizes data into folders and files 
+      and makes it easy for programs and users to read, write, or delete them. At the same time, it controls devices 
+      like printers, keyboards, and screens, so they work properly when needed.
+    </p>
+    <p class="mb-4">
+      Another important role of an OS is providing a <strong>user interface</strong>. This is how you interact with 
+      the computer, either through a graphical interface with windows and icons, or through a command line where 
+      you type instructions.
     </p>
     <p>
-      Operating systems are used in desktops, servers, and embedded systems to ensure
-      efficiency, security, and stability.
+      Operating systems are everywhere: in your personal computer, in servers that run websites, and even in small 
+      devices like smartwatches, cameras, and cars. They make sure the device runs efficiently, stays secure, and 
+      can handle multiple tasks without crashing.
     </p>
   </div>
 </section>
@@ -79,9 +106,9 @@
 <section id="about" class="section">
   <div class="max-w-4xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-6 text-center">About</h2>
-    <!-- picture box: replace src with your image URL or path -->
+
     <div class="mb-6 flex justify-center">
-      <img id="aboutPic" src="https://via.placeholder.com/150" alt="Profile picture"
+      <img id="aboutPic" src="images/icon.png" alt="Profile picture"
            class="w-48 h-48 rounded-full object-cover border border-slate-300" />
     </div>
 
@@ -106,18 +133,18 @@
       <select id="windowsSelect"
               onchange="updateWindowsContent()"
               class="w-full border border-slate-400 px-4 py-2 rounded">
-        <option value="0">Windows 95</option>
-        <option value="1">Windows 98 SE</option>
-        <option value="2">Windows ME</option>
-        <option value="3">Windows NT</option>
-        <option value="4">Windows 2000</option>
-        <option value="5">Windows Server 2003</option>
-        <option value="6">Windows XP</option>
-        <option value="7">Windows Vista</option>
-        <option value="8">Windows 7</option>
-        <option value="9">Windows Server 2008</option>
-        <option value="10">Windows 8.1</option>
-        <option value="11">Windows 10</option>
+        <option value="0"><i class="fab fa-windows icon"></i>Windows 95</option>
+        <option value="1"><i class="fab fa-windows icon"></i>Windows 98 SE</option>
+        <option value="2"><i class="fab fa-windows icon"></i>Windows ME</option>
+        <option value="3"><i class="fab fa-windows icon"></i>Windows NT</option>
+        <option value="4"><i class="fab fa-windows icon"></i>Windows 2000</option>
+        <option value="5"><i class="fab fa-windows icon"></i>Windows Server 2003</option>
+        <option value="6"><i class="fab fa-windows icon"></i>Windows XP</option>
+        <option value="7"><i class="fab fa-windows icon"></i>Windows Vista</option>
+        <option value="8"><i class="fab fa-windows icon"></i>Windows 7</option>
+        <option value="9"><i class="fab fa-windows icon"></i>Windows Server 2008</option>
+        <option value="10"><i class="fab fa-windows icon"></i>Windows 8.1</option>
+        <option value="11"><i class="fab fa-windows icon"></i>Windows 10</option>
       </select>
     </div>
 
@@ -142,6 +169,47 @@
   </div>
 </section>
 
+<section id="labs" class="section">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-center">Laboratory Tasks</h2>
+
+    <div class="max-w-md mx-auto mb-6">
+      <label class="block mb-2 font-medium">Select Activity</label>
+      <select id="labsSelect"
+              onchange="updateLabsContent()"
+              class="w-full border border-slate-400 px-4 py-2 rounded">
+        <option value="0"><i class="fas fa-desktop icon"></i>Task 1: Installation</option>
+        <option value="1"><i class="fas fa-users icon"></i>Task 2: Active Directory: Creating Users</option>
+        <option value="2"><i class="fas fa-globe icon"></i>Task 3: DHCP and Joining Workstations</option>
+        <option value="3"><i class="fas fa-database icon"></i>Task 4: RAID Installation</option>
+        <option value="4"><i class="fas fa-folder icon"></i>Task 5: File Server</option>
+        <option value="5"><i class="fas fa-server icon"></i>Task 6: Web Server</option>
+        <option value="6"><i class="fas fa-cog icon"></i>Task 7: Group Policy Management</option>
+        <option value="7"><i class="fas fa-cloud-upload-alt icon"></i>Task 8: Implementing Windows Deployment Services</option>
+      </select>
+    </div>
+
+    <div class="border border-slate-300 rounded p-6">
+      <h3 id="labTitle" class="text-2xl font-bold mb-4">Activity 1: Disk Partitioning</h3>
+      <p id="labDesc" class="mb-6">
+        Learn to partition a disk using GParted.
+      </p>
+
+      <div class="youtube-embed aspect-video bg-black border border-slate-300 rounded overflow-hidden max-w-md mx-auto">
+        <iframe id="labVideo"
+                class="w-full h-full block"
+                title="Lab Activity Video"
+                frameborder="0"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="border-t border-slate-300 mt-12">
   <div class="max-w-6xl mx-auto px-6 py-6 text-center text-sm">
     <p>For Academic Purpose Only</p>
@@ -151,30 +219,54 @@
 
 <script>
 const windowsData = [
-  ["Windows 95", "Installing Windows 95 involves booting from DOS and running setup.", "https://www.youtube-nocookie.com/embed/vpp35T0ac1Q"],
-  ["Windows 98 SE", "Windows 98 SE improves USB and hardware detection.", "https://www.youtube-nocookie.com/embed/5vX4l28YZhY"],
-  ["Windows ME", "Windows ME focuses on home user installation.", "https://www.youtube-nocookie.com/embed/muOEgmR3FZU"],
-  ["Windows NT", "Windows NT emphasizes stability and security.", "https://www.youtube-nocookie.com/embed/ffYG_Jk_evk"],
-  ["Windows 2000", "Windows 2000 refines NT technology.", "https://www.youtube-nocookie.com/embed/Be3wU99qxMc"],
-  ["Windows Server 2003", "Server 2003 focuses on network roles.", "https://www.youtube-nocookie.com/embed/3yET4Ze2TeY"],
-  ["Windows XP", "Windows XP offers a simple guided setup.", "https://www.youtube-nocookie.com/embed/2NAhKOHA74Y"],
-  ["Windows Vista", "Vista introduces a modern setup interface.", "https://www.youtube-nocookie.com/embed/kVO1_dit59I"],
-  ["Windows 7", "Windows 7 improves speed and reliability.", "https://www.youtube-nocookie.com/embed/EZQjyn7cW-A"],
-  ["Windows Server 2008", "Server 2008 enhances security and roles.", "https://www.youtube-nocookie.com/embed/A68ws9xDRic"],
-  ["Windows 8.1", "Windows 8.1 adds touch-friendly setup.", "https://www.youtube-nocookie.com/embed/TO6IwKFGrA0"],
-  ["Windows 10", "Windows 10 automates updates and setup.", "https://www.youtube-nocookie.com/embed/UCAe7hpMlJY"]
+  ["<i class='fab fa-windows icon'></i>Windows 95", "Installing Windows 95 involves booting from DOS and running setup.", "https://www.youtube-nocookie.com/embed/vpp35T0ac1Q"],
+  ["<i class='fab fa-windows icon'></i>Windows 98 SE", "Windows 98 SE improves USB and hardware detection.", "https://www.youtube-nocookie.com/embed/5vX4l28YZhY"],
+  ["<i class='fab fa-windows icon'></i>Windows ME", "Windows ME focuses on home user installation.", "https://www.youtube-nocookie.com/embed/muOEgmR3FZU"],
+  ["<i class='fab fa-windows icon'></i>Windows NT", "Windows NT emphasizes stability and security.", "https://www.youtube-nocookie.com/embed/ffYG_Jk_evk"],
+  ["<i class='fab fa-windows icon'></i>Windows 2000", "Windows 2000 refines NT technology.", "https://www.youtube-nocookie.com/embed/Be3wU99qxMc"],
+  ["<i class='fab fa-windows icon'></i>Windows Server 2003", "Server 2003 focuses on network roles.", "https://www.youtube-nocookie.com/embed/3yET4Ze2TeY"],
+  ["<i class='fab fa-windows icon'></i>Windows XP", "Windows XP offers a simple guided setup.", "https://www.youtube-nocookie.com/embed/2NAhKOHA74Y"],
+  ["<i class='fab fa-windows icon'></i>Windows Vista", "Vista introduces a modern setup interface.", "https://www.youtube-nocookie.com/embed/kVO1_dit59I"],
+  ["<i class='fab fa-windows icon'></i>Windows 7", "Windows 7 improves speed and reliability.", "https://www.youtube-nocookie.com/embed/EZQjyn7cW-A"],
+  ["<i class='fab fa-windows icon'></i>Windows Server 2008", "Server 2008 enhances security and roles.", "https://www.youtube-nocookie.com/embed/A68ws9xDRic"],
+  ["<i class='fab fa-windows icon'></i>Windows 8.1", "Windows 8.1 adds touch-friendly setup.", "https://www.youtube-nocookie.com/embed/TO6IwKFGrA0"],
+  ["<i class='fab fa-windows icon'></i>Windows 10", "Windows 10 automates updates and setup.", "https://www.youtube-nocookie.com/embed/UCAe7hpMlJY"]
+];
+
+const labsData = [
+  ["<span class=\"emoji\">🖥️</span> Task 1: Installation", "Walk through OS installation process.", "https://www.youtube-nocookie.com/embed/XXX1"],
+  ["<span class=\"emoji\">👥</span> Task 2: Active Directory: Creating Users", "Create and manage user accounts in AD.", "https://www.youtube-nocookie.com/embed/XXX2"],
+  ["<span class=\"emoji\">🌐</span> Task 3: DHCP and Joining Workstations", "Configure DHCP and connect workstations.", "https://www.youtube-nocookie.com/embed/XXX3"],
+  ["<span class=\"emoji\">💾</span> Task 4: RAID Installation", "Set up RAID configurations for redundancy.", "https://www.youtube-nocookie.com/embed/XXX4"],
+  ["<span class=\"emoji\">📁</span> Task 5: File Server", "Install and configure a file server.", "https://www.youtube-nocookie.com/embed/XXX5"],
+  ["<span class=\"emoji\">🌐</span> Task 6: Web Server", "Deploy a web server using IIS.", "https://www.youtube-nocookie.com/embed/XXX6"],
+  ["<span class=\"emoji\">⚙️</span> Task 7: Group Policy Management", "Implement policies across the domain.", "https://www.youtube-nocookie.com/embed/XXX7"],
+  ["<span class=\"emoji\">🚀</span> Task 8: Implementing Windows Deployment Services", "Set up WDS for automated deployments.", "https://www.youtube-nocookie.com/embed/XXX8"]
 ];
 
 function updateWindowsContent() {
   const index = document.getElementById("windowsSelect").value;
 
-  document.getElementById("winTitle").textContent = windowsData[index][0];
+  document.getElementById("winTitle").innerHTML = windowsData[index][0];
   document.getElementById("winDesc").textContent = windowsData[index][1];
 
   const iframe = document.getElementById("winVideo");
   iframe.src = "";
   setTimeout(() => {
     iframe.src = windowsData[index][2];
+  }, 100);
+}
+
+function updateLabsContent() {
+  const index = document.getElementById("labsSelect").value;
+
+  document.getElementById("labTitle").innerHTML = labsData[index][0];
+  document.getElementById("labDesc").textContent = labsData[index][1];
+
+  const iframe = document.getElementById("labVideo");
+  iframe.src = "";
+  setTimeout(() => {
+    iframe.src = labsData[index][2];
   }, 100);
 }
 
@@ -189,6 +281,10 @@ function showSection(id, btn) {
 
   if (id === "windows") {
     updateWindowsContent();
+  }
+
+  if (id === "labs") {
+    updateLabsContent();
   }
 }
 
