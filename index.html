@@ -11,8 +11,32 @@
   <style>
     body { font-family: Cambria, serif; }
 
-    .section { display: none; }
-    .section.active { display: block; }
+    /* paragraphs justified for cleaner appearance */
+    .section p {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    /* section switching animation */
+    .section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .section.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* navigation button state */
+    nav button {
+      cursor: pointer;
+    }
+    nav button.active-nav {
+      color: #1E3A8A;
+      font-weight: 600;
+      border-bottom: 2px solid #1E3A8A;
+    }
 
     /* Lively hover effect */
     .youtube-embed iframe {
@@ -33,9 +57,9 @@
   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
     <h1 class="font-bold text-xl text-blue-900">Operating Systems</h1>
     <div class="space-x-6">
-      <button onclick="showSection('home')" class="font-medium">Home</button>
-      <button onclick="showSection('about')" class="font-medium">About</button>
-      <button onclick="showSection('windows')" class="font-medium">Windows Installation</button>
+      <button onclick="showSection('home', this)" class="font-medium">Home</button>
+      <button onclick="showSection('about', this)" class="font-medium">About</button>
+      <button onclick="showSection('windows', this)" class="font-medium">Windows Installation</button>
     </div>
   </div>
 </nav>
@@ -108,8 +132,8 @@
         Installing Windows 95 involves booting from DOS and following a guided setup process.
       </p>
 
-      <!-- YOUTUBE EMBED (FIXED) -->
-      <div class="youtube-embed aspect-video bg-black border border-slate-300 rounded overflow-hidden">
+      <!-- YOUTUBE EMBED (FIXED, constrained width) -->
+      <div class="youtube-embed aspect-video bg-black border border-slate-300 rounded overflow-hidden max-w-md mx-auto">
         <iframe id="winVideo"
                 class="w-full h-full block"
                 title="Windows Installation Video"
@@ -162,14 +186,26 @@ function updateWindowsContent() {
   }, 100);
 }
 
-function showSection(id) {
+function showSection(id, btn) {
   document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
+
+  // highlight nav button
+  if (btn) {
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active-nav'));
+    btn.classList.add('active-nav');
+  }
 
   if (id === "windows") {
     updateWindowsContent();
   }
 }
+
+// mark the first nav item active when page loads
+window.addEventListener('DOMContentLoaded', () => {
+  const firstBtn = document.querySelector('nav button');
+  if (firstBtn) firstBtn.classList.add('active-nav');
+});
 </script>
 
 </body>
