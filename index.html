@@ -52,6 +52,9 @@
       color: #8B7355;
       padding-bottom: 0.5rem;
       font-family: 'Cambria', serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
     }
 
     nav button:hover {
@@ -59,12 +62,14 @@
       transform: translateY(-2px);
     }
 
-    nav button.active-nav {
+    nav button.active-nav,
+    .nav-dd-btn.active-nav {
       color: #5D4037;
       font-weight: 700;
     }
 
-    nav button.active-nav::after {
+    nav button.active-nav::after,
+    .nav-dd-btn.active-nav::after {
       content: '';
       position: absolute;
       bottom: -16px;
@@ -418,6 +423,97 @@
     button[onclick*="showSection"]:hover {
       background: transparent;
     }
+
+    /* ── Nav dropdown menus ── */
+    .nav-dropdown-wrapper {
+      position: relative;
+    }
+
+    .nav-dd-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: transparent;
+      border: none;
+      padding: 0;
+      padding-bottom: 0.5rem;
+      position: relative;
+      cursor: pointer;
+      color: #8B7355;
+      font-family: 'Cambria', serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-dd-btn:hover {
+      color: #6F4E37;
+    }
+
+    .nav-dd-caret {
+      font-size: 0.68em;
+      opacity: 0.85;
+      transition: transform 0.22s ease;
+      margin-top: 1px;
+    }
+
+    .nav-dropdown-wrapper.open .nav-dd-caret {
+      transform: rotate(180deg);
+    }
+
+    .nav-dd-panel {
+      position: absolute;
+      top: calc(100% + 1.5rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: #f7f3ef;
+      border: 1px solid #cfc2b4;
+      border-radius: 0.75rem;
+      padding: 0.3rem;
+      box-shadow: 0 18px 42px rgba(53, 32, 21, 0.24);
+      max-height: 340px;
+      overflow-y: auto;
+      min-width: 240px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 80;
+    }
+
+    .nav-dropdown-wrapper.open .nav-dd-panel {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav-dd-option {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #3d2a1f;
+      border-radius: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-align: left;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      font-family: 'Cambria', serif;
+    }
+
+    .nav-dd-option:hover {
+      background: #ead8c2;
+      color: #2c1d14;
+    }
+
+    .nav-dd-option:hover { transform: none; }
+
+    .nav-dd-panel::-webkit-scrollbar { width: 8px; }
+    .nav-dd-panel::-webkit-scrollbar-track { background: #ece2d6; border-radius: 999px; }
+    .nav-dd-panel::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4da5e3, #2f89c8); border-radius: 999px; }
   </style>
 </head>
 
@@ -428,12 +524,65 @@
     <h1 class="logo flex items-center gap-2">
       <i class="fas fa-laptop-code"></i>OS Lab
     </h1>
-    <div class="space-x-8 flex items-center">
+    <div class="flex items-center gap-8">
       <button onclick="showSection('home', this)" class="font-medium text-sm md:text-base">Home</button>
       <button onclick="showSection('about', this)" class="font-medium text-sm md:text-base">About</button>
-      <button onclick="showSection('windows', this)" class="font-medium text-sm md:text-base">Windows</button>
-      <button onclick="showSection('labs', this)" class="font-medium text-sm md:text-base">Labs</button>
-      <button onclick="showSection('tup-domain', this)" class="font-medium text-sm md:text-base">TUP-Taguig</button>
+
+      <!-- Windows dropdown -->
+      <div class="nav-dropdown-wrapper" id="navWin">
+        <button class="nav-dd-btn" onclick="toggleNavDropdown('navWin')">
+          Windows Installation <i class="fas fa-chevron-down nav-dd-caret"></i>
+        </button>
+        <div class="nav-dd-panel">
+          <button class="nav-dd-option" onclick="navSelect('windows',0)"><i class="fas fa-windows dropdown-option-icon"></i>Windows 95</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',1)"><i class="fas fa-windows dropdown-option-icon"></i>Windows 98 SE</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',2)"><i class="fas fa-windows dropdown-option-icon"></i>Windows ME</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',3)"><i class="fas fa-windows dropdown-option-icon"></i>Windows NT</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',4)"><i class="fas fa-windows dropdown-option-icon"></i>Windows 2000</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',5)"><i class="fas fa-database dropdown-option-icon"></i>Windows Server 2003</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',6)"><i class="fas fa-windows dropdown-option-icon"></i>Windows XP</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',7)"><i class="fas fa-windows dropdown-option-icon"></i>Windows Vista</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',8)"><i class="fas fa-windows dropdown-option-icon"></i>Windows 7</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',9)"><i class="fas fa-database dropdown-option-icon"></i>Windows Server 2008</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',10)"><i class="fas fa-windows dropdown-option-icon"></i>Windows 8.1</button>
+          <button class="nav-dd-option" onclick="navSelect('windows',11)"><i class="fas fa-windows dropdown-option-icon"></i>Windows 10</button>
+        </div>
+      </div>
+
+      <!-- Labs dropdown -->
+      <div class="nav-dropdown-wrapper" id="navLabs">
+        <button class="nav-dd-btn" onclick="toggleNavDropdown('navLabs')">
+          Laboratory Activities <i class="fas fa-chevron-down nav-dd-caret"></i>
+        </button>
+        <div class="nav-dd-panel">
+          <button class="nav-dd-option" onclick="navSelect('labs',0)"><i class="fas fa-desktop dropdown-option-icon"></i>Task 1: Installation</button>
+          <button class="nav-dd-option" onclick="navSelect('labs',1)"><i class="fas fa-users dropdown-option-icon"></i>Task 2: Active Directory</button>
+          <button class="nav-dd-option" onclick="navSelect('labs',2)"><i class="fas fa-globe dropdown-option-icon"></i>Task 3: DHCP</button>
+          <button class="nav-dd-option" onclick="navSelect('labs',3)"><i class="fas fa-hard-drive dropdown-option-icon"></i>Task 4: RAID</button>
+          <button class="nav-dd-option" onclick="navSelect('labs',4)"><i class="fas fa-folder dropdown-option-icon"></i>Task 5: File Server</button>
+          <button class="nav-dd-option" onclick="navSelect('labs',5)"><i class="fas fa-server dropdown-option-icon"></i>Task 6: Web Server</button>
+          <button class="nav-dd-option" onclick="navSelect('labs',6)"><i class="fas fa-gear dropdown-option-icon"></i>Task 7: Group Policy</button>
+          <button class="nav-dd-option" onclick="navSelect('labs',7)"><i class="fas fa-cloud-arrow-up dropdown-option-icon"></i>Task 8: WDS</button>
+        </div>
+      </div>
+
+      <!-- TUP-Taguig dropdown -->
+      <div class="nav-dropdown-wrapper" id="navTup">
+        <button class="nav-dd-btn" onclick="toggleNavDropdown('navTup')">
+          Finals: TUP-Taguig Domain <i class="fas fa-chevron-down nav-dd-caret"></i>
+        </button>
+        <div class="nav-dd-panel">
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',0)"><i class="fas fa-server dropdown-option-icon"></i>Part 1: Domain Controller</button>
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',1)"><i class="fas fa-user-plus dropdown-option-icon"></i>Part 2: Adding Users</button>
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',2)"><i class="fas fa-network-wired dropdown-option-icon"></i>Part 3: DHCP Server</button>
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',3)"><i class="fas fa-folder-tree dropdown-option-icon"></i>Part 4: File Sharing</button>
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',4)"><i class="fas fa-hard-drive dropdown-option-icon"></i>Part 5: RAID</button>
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',5)"><i class="fas fa-display dropdown-option-icon"></i>Part 6: Remote Desktop</button>
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',6)"><i class="fas fa-globe dropdown-option-icon"></i>Part 7: Web Server</button>
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',7)"><i class="fas fa-sliders dropdown-option-icon"></i>Part 8: Group Policies</button>
+          <button class="nav-dd-option" onclick="navSelect('tup-domain',8)"><i class="fas fa-rocket dropdown-option-icon"></i>Part 9: Windows Deployment</button>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
@@ -562,7 +711,7 @@
   <div class="max-w-6xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-8 text-center">Windows Installation</h2>
 
-    <div class="content-card p-8 max-w-2xl mx-auto">
+    <div class="content-card p-8">
       <div class="mb-6">
         <label class="block mb-2 font-medium">Select Windows Version</label>
         <select id="windowsSelect"
@@ -609,7 +758,7 @@
   <div class="max-w-6xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-8 text-center">Laboratory Tasks</h2>
 
-    <div class="content-card p-8 max-w-2xl mx-auto">
+    <div class="content-card p-8">
       <div class="mb-6">
         <label class="block mb-2 font-medium">Select Activity</label>
         <select id="labsSelect"
@@ -1100,26 +1249,50 @@ function initCustomDropdowns() {
   createCustomDropdown(document.getElementById("tupPartSelect"));
 }
 
+function toggleNavDropdown(wrapperId) {
+  const wrapper = document.getElementById(wrapperId);
+  const isOpen = wrapper.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown-wrapper').forEach(w => w.classList.remove('open'));
+  if (!isOpen) wrapper.classList.add('open');
+}
+
+function navSelect(sectionId, optionIndex) {
+  // Close all nav dropdowns
+  document.querySelectorAll('.nav-dropdown-wrapper').forEach(w => w.classList.remove('open'));
+
+  // Show section
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(sectionId).classList.add('active');
+
+  // Mark nav button active
+  document.querySelectorAll('nav button, nav .nav-dd-btn').forEach(b => b.classList.remove('active-nav'));
+  const wrapperMap = { windows: 'navWin', labs: 'navLabs', 'tup-domain': 'navTup' };
+  const wId = wrapperMap[sectionId];
+  if (wId) document.querySelector('#' + wId + ' .nav-dd-btn').classList.add('active-nav');
+
+  // Update native select + fire change so custom dropdown re-renders
+  const selectMap = { windows: 'windowsSelect', labs: 'labsSelect', 'tup-domain': 'tupPartSelect' };
+  const selectId = selectMap[sectionId];
+  if (selectId) {
+    const select = document.getElementById(selectId);
+    select.value = optionIndex;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+}
+
 function showSection(id, btn) {
+  document.querySelectorAll('.nav-dropdown-wrapper').forEach(w => w.classList.remove('open'));
   document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 
   if (btn) {
-    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active-nav'));
+    document.querySelectorAll('nav button, nav .nav-dd-btn').forEach(b => b.classList.remove('active-nav'));
     btn.classList.add('active-nav');
   }
 
-  if (id === "windows") {
-    updateWindowsContent();
-  }
-
-  if (id === "labs") {
-    updateLabsContent();
-  }
-
-  if (id === "tup-domain") {
-    updateTupPartContent();
-  }
+  if (id === "windows") updateWindowsContent();
+  if (id === "labs") updateLabsContent();
+  if (id === "tup-domain") updateTupPartContent();
 }
 
 
@@ -1129,6 +1302,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
   initCustomDropdowns();
   updateTupPartContent();
+
+  // Close nav dropdowns when clicking outside
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav-dropdown-wrapper')) {
+      document.querySelectorAll('.nav-dropdown-wrapper').forEach(w => w.classList.remove('open'));
+    }
+  });
 });
 </script>
 
