@@ -14,11 +14,11 @@
       scroll-behavior: smooth;
     }
 
-    body { 
+    body {
       font-family: 'Cambria', 'Garamond', serif;
-      background: linear-gradient(135deg, #F6EBDD 0%, #EADBC7 100%) !important;
+      background: linear-gradient(135deg, #F7EFE4 0%, #EDE1D1 100%);
       min-height: 100vh;
-      color: #5D4037 !important;
+      color: #5D4037;
     }
 
     .section p {
@@ -41,8 +41,9 @@
     }
 
     nav {
-      background: linear-gradient(90deg, #F7ECDD 0%, #EEDFCB 100%);
+      background: linear-gradient(90deg, #FAF4EB 0%, #EFE3D3 100%);
       box-shadow: 0 2px 15px rgba(93, 64, 55, 0.12);
+      border-bottom: 1px solid rgba(131, 101, 72, 0.15);
     }
 
     nav button {
@@ -76,7 +77,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #6F4E37, #8B7355);
+      background: linear-gradient(90deg, #9A7758, #6E533F);
       border-radius: 2px;
       animation: slideIn 0.3s ease;
     }
@@ -87,7 +88,7 @@
     }
 
     .logo {
-      background: linear-gradient(135deg, #6F4E37, #8B7355);
+      background: linear-gradient(135deg, #8B694D, #6E533F);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -109,26 +110,26 @@
     }
 
     .content-card {
-      background: rgba(255, 248, 238, 0.88);
+      background: rgba(255, 252, 247, 0.9);
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(93, 64, 55, 0.15);
       transition: all 0.3s ease;
-      border: 1px solid rgba(176, 145, 113, 0.36);
+      border: 1px solid rgba(176, 145, 113, 0.3);
     }
 
     .content-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 35px rgba(93, 64, 55, 0.2);
-      background: rgba(255, 250, 243, 0.95);
+      box-shadow: 0 12px 32px rgba(93, 64, 55, 0.18);
+      background: rgba(255, 250, 243, 0.98);
     }
 
     .hero-section {
-      background: linear-gradient(135deg, #E3CDB4 0%, #CFB092 100%);
-      color: #4C382A;
+      background: linear-gradient(135deg, #E8D7C2 0%, #D6B89B 100%);
+      color: #443226;
       border-radius: 16px;
       padding: 3rem;
       margin-bottom: 2rem;
-      box-shadow: 0 10px 36px rgba(111, 78, 55, 0.22);
+      box-shadow: 0 10px 34px rgba(111, 78, 55, 0.2);
     }
 
     .hero-section h2 {
@@ -137,13 +138,13 @@
       margin-bottom: 1rem;
       letter-spacing: -0.5px;
       font-family: 'Cambria', serif;
-      color: #4C382A;
+      color: #443226;
     }
 
     .hero-section p,
     .hero-section .text-lg,
     .hero-section .opacity-95 {
-      color: #5C4636;
+      color: #4F3B2C;
     }
 
     .hero-section .text-white {
@@ -206,7 +207,7 @@
       position: relative;
       display: inline-block;
       font-family: 'Cambria', serif;
-      color: #5D4037;
+      color: #4F3A2C;
     }
 
     h2::after {
@@ -217,12 +218,12 @@
       transform: translateX(-50%);
       width: 60px;
       height: 4px;
-      background: linear-gradient(90deg, #8B7355, #6F4E37);
+      background: linear-gradient(90deg, #9A785C, #735743);
       border-radius: 2px;
     }
 
     .hero-section h2::after {
-      background: linear-gradient(90deg, #A57F5F, #8C6A4F);
+      background: linear-gradient(90deg, #9A785C, #735743);
     }
 
     h3 {
@@ -257,23 +258,28 @@
       margin-top: 0.5rem;
     }
 
-    .text-slate-900 { color: #4A3328 !important; }
-    .text-slate-700 { color: #5B4336 !important; }
-    .text-slate-600 { color: #6B5041 !important; }
+    .text-slate-900 { color: #4A3426 !important; }
+    .text-slate-700 { color: #594332 !important; }
+    .text-slate-600 { color: #69513F !important; }
 
     .text-purple-500,
     .text-purple-600,
     .text-blue-600,
     .text-green-600,
     .text-orange-600 {
-      color: #8B5E3C !important;
+      color: #8A6A50 !important;
     }
 
     .bg-purple-100,
     .bg-blue-100,
     .bg-green-100,
     .bg-orange-100 {
-      background-color: rgba(139, 94, 60, 0.14) !important;
+      background-color: rgba(138, 106, 80, 0.16) !important;
+    }
+
+    .beige-note {
+      background: #f3e7d8;
+      border: 1px solid #d6bea2;
     }
 
     .case-list {
@@ -400,7 +406,7 @@
     .dropdown-option-icon {
       width: 1.1rem;
       text-align: center;
-      color: #8C6A4F;
+      color: #7C5F48;
       flex-shrink: 0;
     }
 
@@ -680,7 +686,7 @@
         </div>
       </div>
 
-      <div class="mt-8 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+      <div class="mt-8 p-4 beige-note rounded-lg">
         <p class="text-slate-700">
           <strong>Everywhere You Look:</strong> Operating systems are in personal computers, servers, smartphones, smartwatches, cameras, and cars. They ensure devices run efficiently, stay secure, and handle multiple tasks without crashing.
         </p>
@@ -773,9 +779,22 @@
       </p>
     </div>
 
-    <div class="content-card p-8 max-w-2xl mx-auto">
-      <h3 id="tupPartTitle" class="text-2xl font-bold mb-4 text-slate-900">Part 1: Domain Controller</h3>
-      <div id="tupPartDesc" class="text-slate-700"></div>
+    <div class="content-card p-8">
+      <h3 id="tupPartTitle" class="text-2xl font-bold mb-3 text-slate-900">Part 1: Domain Controller</h3>
+      <p id="tupPartLead" class="text-slate-700 mb-4">Set up the tupt.edu.ph domain controller and core Active Directory services.</p>
+      <div id="tupPartDesc" class="text-slate-700 mb-6"></div>
+
+      <div id="tupVideoWrap" class="youtube-embed aspect-video bg-black rounded overflow-hidden mt-4 hidden">
+        <iframe id="tupVideo"
+                class="w-full h-full block"
+                title="TUP Case Study Video"
+                frameborder="0"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -817,6 +836,8 @@ const labsData = [
 const tupPartsData = [
   {
     title: "Part 1: Domain Controller",
+    lead: "Set up the tupt.edu.ph domain controller and core Active Directory services.",
+    video: "https://www.youtube-nocookie.com/embed/HofHcsxvXZI",
     description: `
       <ul class="case-list">
         <li>Install Windows Server 2008</li>
@@ -825,22 +846,11 @@ const tupPartsData = [
         <li>Install Active Directory Domain Services (AD DS)</li>
         <li>Configure DNS during promotion</li>
       </ul>
-      <div class="youtube-embed aspect-video bg-black rounded overflow-hidden mt-5">
-        <iframe
-          class="w-full h-full block"
-          src="https://www.youtube-nocookie.com/embed/HofHcsxvXZI"
-          title="TUP Case Study Part 1 Video"
-          frameborder="0"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
     `
   },
   {
     title: "Part 2: Adding Users",
+    lead: "Create user structures and access controls for departments and offices.",
     description: `
       <ul class="case-list">
         <li>Create Organizational Units (OU) for:
@@ -873,6 +883,7 @@ const tupPartsData = [
   },
   {
     title: "Part 3: DHCP Server",
+    lead: "Configure scopes, DNS options, and lease behavior for campus clients.",
     description: `
       <ul class="case-list">
         <li>Configure IP ranges:
@@ -905,6 +916,7 @@ const tupPartsData = [
   },
   {
     title: "Part 4: File Sharing",
+    lead: "Implement secure shared folders, quotas, and mapped drives.",
     description: `
       <ul class="case-list">
         <li>Create shared folders:
@@ -931,6 +943,7 @@ const tupPartsData = [
   },
   {
     title: "Part 5: RAID",
+    lead: "Set up storage redundancy and performance using multiple RAID types.",
     description: `
       <ul class="case-list">
         <li>Configure:</li>
@@ -943,6 +956,7 @@ const tupPartsData = [
   },
   {
     title: "Part 6: Remote Desktop",
+    lead: "Enable remote access and secure workstation connectivity.",
     description: `
       <ul class="case-list">
         <li>Enable Remote Desktop on:</li>
@@ -953,6 +967,7 @@ const tupPartsData = [
   },
   {
     title: "Part 7: Web Server",
+    lead: "Deploy IIS and publish university and department websites.",
     description: `
       <ul class="case-list">
         <li>Install IIS 7</li>
@@ -967,6 +982,7 @@ const tupPartsData = [
   },
   {
     title: "Part 8: Group Policies",
+    lead: "Apply policy-based security, usability, and account restrictions.",
     description: `
       <ul class="case-list">
         <li>Apply per department:
@@ -1009,6 +1025,7 @@ const tupPartsData = [
   },
   {
     title: "Part 9: Windows Deployment",
+    lead: "Automate OS installation through Windows Deployment Services.",
     description: `
       <ul class="case-list">
         <li>Install Windows Deployment Services (WDS)</li>
@@ -1075,7 +1092,22 @@ function updateTupPartContent(index = currentTupPartIndex) {
   if (!part) return;
 
   document.getElementById("tupPartTitle").textContent = part.title;
+  document.getElementById("tupPartLead").textContent = part.lead || "Review the required tasks for this part of the TUP-Taguig case study.";
   document.getElementById("tupPartDesc").innerHTML = part.description;
+
+  const videoWrap = document.getElementById("tupVideoWrap");
+  const videoFrame = document.getElementById("tupVideo");
+  if (!videoWrap || !videoFrame) return;
+
+  videoFrame.src = "";
+  if (part.video) {
+    videoWrap.classList.remove("hidden");
+    setTimeout(() => {
+      videoFrame.src = part.video;
+    }, 100);
+  } else {
+    videoWrap.classList.add("hidden");
+  }
 }
 
 function getOptionLabel(option) {
