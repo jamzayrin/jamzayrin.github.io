@@ -712,28 +712,6 @@
     <h2 class="text-3xl font-bold mb-8 text-center">Windows Installation</h2>
 
     <div class="content-card p-8">
-      <div class="mb-6">
-        <label class="block mb-2 font-medium">Select Windows Version</label>
-        <select id="windowsSelect"
-                onchange="updateWindowsContent()"
-                class="w-full border border-slate-400 px-4 py-2 rounded">
-          <option value="0">Windows 95</option>
-          <option value="1">Windows 98 SE</option>
-          <option value="2">Windows ME</option>
-          <option value="3">Windows NT</option>
-          <option value="4">Windows 2000</option>
-          <option value="5">Windows Server 2003</option>
-          <option value="6">Windows XP</option>
-          <option value="7">Windows Vista</option>
-          <option value="8">Windows 7</option>
-          <option value="9">Windows Server 2008</option>
-          <option value="10">Windows 8.1</option>
-          <option value="11">Windows 10</option>
-        </select>
-      </div>
-
-      <hr class="border-amber-200 mb-6" />
-
       <h3 id="winTitle" class="text-2xl font-bold mb-4">Windows 95</h3>
       <p id="winDesc" class="mb-6">
         Installing Windows 95 involves booting from DOS and following a guided setup process.
@@ -759,24 +737,6 @@
     <h2 class="text-3xl font-bold mb-8 text-center">Laboratory Tasks</h2>
 
     <div class="content-card p-8">
-      <div class="mb-6">
-        <label class="block mb-2 font-medium">Select Activity</label>
-        <select id="labsSelect"
-                onchange="updateLabsContent()"
-                class="w-full border border-slate-400 px-4 py-2 rounded">
-          <option value="0">Task 1: Installation</option>
-          <option value="1">Task 2: Active Directory: Creating Users</option>
-          <option value="2">Task 3: DHCP and Joining Workstations</option>
-          <option value="3">Task 4: RAID Installation</option>
-          <option value="4">Task 5: File Server</option>
-          <option value="5">Task 6: Web Server</option>
-          <option value="6">Task 7: Group Policy Management</option>
-          <option value="7">Task 8: Implementing Windows Deployment Services</option>
-        </select>
-      </div>
-
-      <hr class="border-amber-200 mb-6" />
-
       <h3 id="labTitle" class="text-2xl font-bold mb-4">Task 1: Installation</h3>
       <p id="labDesc" class="mb-6">
         Walk through OS installation process.
@@ -805,30 +765,11 @@
       </div>
       <h2>TUP-Taguig Domain Case Study</h2>
       <p class="mt-4 text-lg opacity-95 max-w-2xl mx-auto">
-        Select a part to view the exact tasks and descriptions for the tupt.edu.ph infrastructure activity.
+        Use the top menu dropdown to choose a part and view the exact tasks and descriptions for the tupt.edu.ph infrastructure activity.
       </p>
     </div>
 
     <div class="content-card p-8 max-w-2xl mx-auto">
-      <div class="mb-6">
-        <label class="block mb-2 font-medium">Select Part</label>
-        <select id="tupPartSelect"
-                onchange="updateTupPartContent()"
-                class="w-full border border-slate-400 px-4 py-2 rounded">
-          <option value="0">Part 1: Domain Controller</option>
-          <option value="1">Part 2: Adding Users</option>
-          <option value="2">Part 3: DHCP Server</option>
-          <option value="3">Part 4: File Sharing</option>
-          <option value="4">Part 5: RAID</option>
-          <option value="5">Part 6: Remote Desktop</option>
-          <option value="6">Part 7: Web Server</option>
-          <option value="7">Part 8: Group Policies</option>
-          <option value="8">Part 9: Windows Deployment</option>
-        </select>
-      </div>
-
-      <hr class="border-amber-200 mb-6" />
-
       <h3 id="tupPartTitle" class="text-2xl font-bold mb-4 text-slate-900">Part 1: Domain Controller</h3>
       <div id="tupPartDesc" class="text-slate-700"></div>
     </div>
@@ -1066,38 +1007,55 @@ const tupPartsData = [
   }
 ];
 
-function updateWindowsContent() {
-  const index = document.getElementById("windowsSelect").value;
+let currentWindowsIndex = 0;
+let currentLabsIndex = 0;
+let currentTupPartIndex = 0;
 
-  document.getElementById("winTitle").innerHTML = windowsData[index][0];
-  document.getElementById("winDesc").textContent = windowsData[index][1];
+function updateWindowsContent(index = currentWindowsIndex) {
+  const parsedIndex = Number(index);
+  if (!Number.isNaN(parsedIndex) && windowsData[parsedIndex]) {
+    currentWindowsIndex = parsedIndex;
+  }
+
+  const selected = windowsData[currentWindowsIndex] || windowsData[0];
+  if (!selected) return;
+
+  document.getElementById("winTitle").innerHTML = selected[0];
+  document.getElementById("winDesc").textContent = selected[1];
 
   const iframe = document.getElementById("winVideo");
   iframe.src = "";
   setTimeout(() => {
-    iframe.src = windowsData[index][2];
+    iframe.src = selected[2];
   }, 100);
 }
 
-function updateLabsContent() {
-  const index = document.getElementById("labsSelect").value;
+function updateLabsContent(index = currentLabsIndex) {
+  const parsedIndex = Number(index);
+  if (!Number.isNaN(parsedIndex) && labsData[parsedIndex]) {
+    currentLabsIndex = parsedIndex;
+  }
 
-  document.getElementById("labTitle").innerHTML = labsData[index][0];
-  document.getElementById("labDesc").textContent = labsData[index][1];
+  const selected = labsData[currentLabsIndex] || labsData[0];
+  if (!selected) return;
+
+  document.getElementById("labTitle").innerHTML = selected[0];
+  document.getElementById("labDesc").textContent = selected[1];
 
   const iframe = document.getElementById("labVideo");
   iframe.src = "";
   setTimeout(() => {
-    iframe.src = labsData[index][2];
+    iframe.src = selected[2];
   }, 100);
 }
 
-function updateTupPartContent() {
-  const select = document.getElementById("tupPartSelect");
-  if (!select) return;
+function updateTupPartContent(index = currentTupPartIndex) {
+  const parsedIndex = Number(index);
+  if (!Number.isNaN(parsedIndex) && tupPartsData[parsedIndex]) {
+    currentTupPartIndex = parsedIndex;
+  }
 
-  const index = Number(select.value);
-  const part = tupPartsData[index];
+  const part = tupPartsData[currentTupPartIndex] || tupPartsData[0];
   if (!part) return;
 
   document.getElementById("tupPartTitle").textContent = part.title;
@@ -1270,14 +1228,9 @@ function navSelect(sectionId, optionIndex) {
   const wId = wrapperMap[sectionId];
   if (wId) document.querySelector('#' + wId + ' .nav-dd-btn').classList.add('active-nav');
 
-  // Update native select + fire change so custom dropdown re-renders
-  const selectMap = { windows: 'windowsSelect', labs: 'labsSelect', 'tup-domain': 'tupPartSelect' };
-  const selectId = selectMap[sectionId];
-  if (selectId) {
-    const select = document.getElementById(selectId);
-    select.value = optionIndex;
-    select.dispatchEvent(new Event('change', { bubbles: true }));
-  }
+  if (sectionId === 'windows') updateWindowsContent(optionIndex);
+  if (sectionId === 'labs') updateLabsContent(optionIndex);
+  if (sectionId === 'tup-domain') updateTupPartContent(optionIndex);
 }
 
 function showSection(id, btn) {
@@ -1300,7 +1253,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const firstBtn = document.querySelector('nav button');
   if (firstBtn) firstBtn.classList.add('active-nav');
 
-  initCustomDropdowns();
+  updateWindowsContent(0);
+  updateLabsContent(0);
   updateTupPartContent();
 
   // Close nav dropdowns when clicking outside
