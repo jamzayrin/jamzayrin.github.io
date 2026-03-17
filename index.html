@@ -10,35 +10,87 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pFwD7hCvOqjNabRDXeGb6ir6DDJHJXh/Q1ZGVosQ3bC5ZP165xKXe1O/0pCrx6LrILm1VrK68VQzYtKpD65mYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    body { font-family: Cambria, serif; }
+    * {
+      scroll-behavior: smooth;
+    }
+
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
 
     .section p {
       text-align: justify;
       text-justify: inter-word;
+      line-height: 1.8;
     }
 
     .section {
       display: none;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .section.active {
       display: block;
       opacity: 1;
+      transform: translateY(0);
+    }
+
+    nav {
+      background: linear-gradient(90deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     }
 
     nav button {
       cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      color: #64748b;
+      padding-bottom: 0.5rem;
     }
+
+    nav button:hover {
+      color: #1e40af;
+      transform: translateY(-2px);
+    }
+
     nav button.active-nav {
-      color: #1E3A8A;
-      font-weight: 600;
-      border-bottom: 2px solid #1E3A8A;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    nav button.active-nav::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+      border-radius: 2px;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .logo {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
 
     /* icon styling */
     .icon {
-      color: black;
+      color: #1e40af;
       width: 1em;
       height: 1em;
       display: inline-block;
@@ -47,59 +99,252 @@
       font-style: normal;
     }
 
+    .content-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .content-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+    }
+
+    .hero-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .profile-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border-top: 4px solid #667eea;
+    }
+
+    #aboutPic {
+      transition: all 0.4s ease;
+      border: 3px solid #667eea !important;
+    }
+
+    #aboutPic:hover {
+      transform: scale(1.08) rotate(2deg);
+      filter: brightness(1.1);
+    }
+
+    select, input {
+      transition: all 0.3s ease;
+      border: 2px solid #e2e8f0 !important;
+      background-color: white;
+    }
+
+    select:focus, input:focus {
+      border-color: #667eea !important;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      outline: none;
+    }
+
+    select:hover, input:hover {
+      border-color: #cbd5e1 !important;
+    }
+
+    .youtube-embed {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+    }
+
     .youtube-embed iframe {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border-radius: 8px;
     }
-    .youtube-embed iframe:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+
+    .youtube-embed:hover iframe {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    button[onclick*="showSection"] {
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    button[onclick*="showSection"]:hover {
+      background: transparent;
     }
   </style>
 </head>
 
-<body class="bg-white text-slate-900">
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900">
 
-<nav class="border-b border-slate-300 sticky top-0 bg-white z-50">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="font-bold text-xl text-blue-900">Operating Systems</h1>
-    <div class="space-x-6">
-      <button onclick="showSection('home', this)" class="font-medium">Home</button>
-      <button onclick="showSection('about', this)" class="font-medium">About</button>
-      <button onclick="showSection('windows', this)" class="font-medium">Windows Installation</button>
-      <button onclick="showSection('labs', this)" class="font-medium">Laboratory Tasks</button>
+<nav class="sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <h1 class="logo flex items-center gap-2">
+      <i class="fas fa-laptop-code"></i>OS Lab
+    </h1>
+    <div class="space-x-8 flex items-center">
+      <button onclick="showSection('home', this)" class="font-medium text-sm md:text-base">Home</button>
+      <button onclick="showSection('about', this)" class="font-medium text-sm md:text-base">About</button>
+      <button onclick="showSection('windows', this)" class="font-medium text-sm md:text-base">Windows</button>
+      <button onclick="showSection('labs', this)" class="font-medium text-sm md:text-base">Labs</button>
     </div>
   </div>
 </nav>
 
 <section id="home" class="section active">
-  <div class="max-w-4xl mx-auto px-6 py-16">
-    <h2 class="text-4xl font-bold mb-6 text-center">Operating Systems</h2>
-    <p class="mb-4">
-      An <strong>Operating System (OS)</strong> is the main software that makes a computer or device work. 
-      It acts like a manager, controlling the hardware like the processor, memory, storage, and input/output devices. 
-      Without an OS, the computer cannot understand what programs are trying to do.
-    </p>
-    <p class="mb-4">
-      One of the main tasks of an OS is <strong>memory management</strong>. This means it keeps track of all the data 
-      being used by programs and makes sure they do not interfere with each other. It also decides which program 
-      runs at what time, a process called <strong>process management</strong>, so your computer can multitask smoothly.
-    </p>
-    <p class="mb-4">
-      The OS also manages files on your hard drive or other storage devices. It organizes data into folders and files 
-      and makes it easy for programs and users to read, write, or delete them. At the same time, it controls devices 
-      like printers, keyboards, and screens, so they work properly when needed.
-    </p>
-    <p class="mb-4">
-      Another important role of an OS is providing a <strong>user interface</strong>. This is how you interact with 
-      the computer, either through a graphical interface with windows and icons, or through a command line where 
-      you type instructions.
-    </p>
-    <p>
-      Operating systems are everywhere: in your personal computer, in servers that run websites, and even in small 
-      devices like smartwatches, cameras, and cars. They make sure the device runs efficiently, stays secure, and 
-      can handle multiple tasks without crashing.
-    </p>
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    
+    <div class="hero-section text-center">
+      <div class="text-white text-5xl mb-4">
+        <i class="fas fa-server"></i>
+      </div>
+      <h2>Operating Systems Fundamentals</h2>
+      <p class="mt-4 text-lg opacity-95 max-w-2xl mx-auto">
+        Explore comprehensive installation guides and hands-on laboratory work for Operating Systems course
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="content-card p-6">
+        <div class="text-4xl text-purple-500 mb-4">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">What is an OS?</h3>
+        <p class="text-slate-600">
+          An <strong>Operating System (OS)</strong> is the main software that makes a computer or device work. 
+          It acts like a manager, controlling the hardware like the processor, memory, storage, and input/output devices.
+        </p>
+      </div>
+
+      <div class="content-card p-6">
+        <div class="text-4xl text-purple-500 mb-4">
+          <i class="fas fa-tasks"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">Key Responsibilities</h3>
+        <p class="text-slate-600">
+          <strong>Memory Management</strong>, <strong>Process Management</strong>, file organization, device control, and providing a user interface. All working together seamlessly.
+        </p>
+      </div>
+    </div>
+
+    <div class="content-card p-8">
+      <h3 class="text-2xl font-bold mb-6 text-slate-900">Understanding Operating Systems</h3>
+      
+      <div class="space-y-4">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-purple-100">
+              <i class="fas fa-brain text-purple-600"></i>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-2">Resource Management</h4>
+            <p class="text-slate-600">One of the main tasks of an OS is memory management. This means it keeps track of all the data being used by programs and makes sure they do not interfere with each other.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-100">
+              <i class="fas fa-sync text-blue-600"></i>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-2">Process Scheduling</h4>
+            <p class="text-slate-600">Process management decides which program runs at what time, so your computer can multitask smoothly without conflicts or crashes.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-green-100">
+              <i class="fas fa-folder-open text-green-600"></i>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-2">File Management</h4>
+            <p class="text-slate-600">The OS manages files on your hard drive or other storage devices, organizing data into folders and making it easy for programs and users to access them.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-orange-100">
+              <i class="fas fa-mouse text-orange-600"></i>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-2">User Interface</h4>
+            <p class="text-slate-600">Another important role of an OS is providing a user interface. This is how you interact with the computer, either graphically or through command line.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-purple-200">
+        <p class="text-slate-700">
+          <strong>Everywhere You Look:</strong> Operating systems are in personal computers, servers, smartphones, smartwatches, cameras, and cars. They ensure devices run efficiently, stay secure, and handle multiple tasks without crashing.
+        </p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -189,6 +434,23 @@
       </select>
     </div>
 
+    <div class="max-w-md mx-auto mb-6">
+      <label class="block mb-2 font-medium"><i class="fas fa-network-wired icon"></i>Select Domain</label>
+      <select id="domainSelect"
+              onchange="updateDomainInfo()"
+              class="w-full border border-slate-400 px-4 py-2 rounded">
+        <option value="tup-taguig"><i class="fas fa-building icon"></i>TUP-TAGUIG Domain</option>
+        <option value="lab-primary">LAB-PRIMARY Domain</option>
+        <option value="workgroup">WORKGROUP (No Domain)</option>
+        <option value="production">PRODUCTION Domain</option>
+      </select>
+    </div>
+
+    <div id="domainInfo" class="max-w-md mx-auto mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg hidden">
+      <p class="text-sm text-blue-900"><strong>Domain:</strong> <span id="domainName">TUP-TAGUIG</span></p>
+      <p class="text-sm text-blue-700 mt-1"><strong>Status:</strong> <span class="badge">Active</span></p>
+    </div>
+
     <div class="border border-slate-300 rounded p-6">
       <h3 id="labTitle" class="text-2xl font-bold mb-4">Activity 1: Disk Partitioning</h3>
       <p id="labDesc" class="mb-6">
@@ -268,6 +530,22 @@ function updateLabsContent() {
   setTimeout(() => {
     iframe.src = labsData[index][2];
   }, 100);
+}
+
+function updateDomainInfo() {
+  const domain = document.getElementById("domainSelect").value;
+  const domainInfo = document.getElementById("domainInfo");
+  const domainName = document.getElementById("domainName");
+  
+  const domainMap = {
+    "tup-taguig": "TUP-TAGUIG",
+    "lab-primary": "LAB-PRIMARY",
+    "workgroup": "WORKGROUP",
+    "production": "PRODUCTION"
+  };
+  
+  domainName.textContent = domainMap[domain] || "Unknown";
+  domainInfo.classList.remove("hidden");
 }
 
 function showSection(id, btn) {
