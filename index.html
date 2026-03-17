@@ -25,7 +25,7 @@
       text-align: justify;
       text-justify: inter-word;
       line-height: 1.8;
-      color: #5D4037;
+      color: inherit;
     }
 
     .section {
@@ -135,6 +135,12 @@
       color: #F5E6D3;
     }
 
+    .hero-section p,
+    .hero-section .text-lg,
+    .hero-section .opacity-95 {
+      color: #F8EAD7;
+    }
+
     .profile-card {
       background: rgba(255, 255, 255, 0.8);
       border-radius: 16px;
@@ -206,6 +212,10 @@
       border-radius: 2px;
     }
 
+    .hero-section h2::after {
+      background: linear-gradient(90deg, #EBD9C2, #D5B79A);
+    }
+
     h3 {
       color: #5D4037;
       font-family: 'Cambria', serif;
@@ -236,6 +246,25 @@
       font-size: 0.75rem;
       font-weight: 600;
       margin-top: 0.5rem;
+    }
+
+    .text-slate-900 { color: #4A3328 !important; }
+    .text-slate-700 { color: #5B4336 !important; }
+    .text-slate-600 { color: #6B5041 !important; }
+
+    .text-purple-500,
+    .text-purple-600,
+    .text-blue-600,
+    .text-green-600,
+    .text-orange-600 {
+      color: #8B5E3C !important;
+    }
+
+    .bg-purple-100,
+    .bg-blue-100,
+    .bg-green-100,
+    .bg-orange-100 {
+      background-color: rgba(139, 94, 60, 0.14) !important;
     }
 
     button[onclick*="showSection"] {
@@ -356,7 +385,7 @@
         </div>
       </div>
 
-      <div class="mt-8 p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-purple-200">
+      <div class="mt-8 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
         <p class="text-slate-700">
           <strong>Everywhere You Look:</strong> Operating systems are in personal computers, servers, smartphones, smartwatches, cameras, and cars. They ensure devices run efficiently, stay secure, and handle multiple tasks without crashing.
         </p>
