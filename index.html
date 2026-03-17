@@ -16,9 +16,9 @@
 
     body { 
       font-family: 'Cambria', 'Garamond', serif;
-      background: linear-gradient(135deg, #F5E6D3 0%, #E6D5C8 100%);
+      background: linear-gradient(135deg, #F6EBDD 0%, #EADBC7 100%) !important;
       min-height: 100vh;
-      color: #5D4037;
+      color: #5D4037 !important;
     }
 
     .section p {
@@ -41,7 +41,7 @@
     }
 
     nav {
-      background: linear-gradient(90deg, #F5E6D3 0%, #E6D5C8 100%);
+      background: linear-gradient(90deg, #F7ECDD 0%, #EEDFCB 100%);
       box-shadow: 0 2px 15px rgba(93, 64, 55, 0.12);
     }
 
@@ -109,26 +109,26 @@
     }
 
     .content-card {
-      background: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 248, 238, 0.88);
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(93, 64, 55, 0.15);
       transition: all 0.3s ease;
-      border: 1px solid rgba(193, 154, 107, 0.3);
+      border: 1px solid rgba(176, 145, 113, 0.36);
     }
 
     .content-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 35px rgba(93, 64, 55, 0.2);
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 250, 243, 0.95);
     }
 
     .hero-section {
-      background: linear-gradient(135deg, #8B7355 0%, #6F4E37 100%);
-      color: #F5E6D3;
+      background: linear-gradient(135deg, #E3CDB4 0%, #CFB092 100%);
+      color: #4C382A;
       border-radius: 16px;
       padding: 3rem;
       margin-bottom: 2rem;
-      box-shadow: 0 10px 40px rgba(111, 78, 55, 0.3);
+      box-shadow: 0 10px 36px rgba(111, 78, 55, 0.22);
     }
 
     .hero-section h2 {
@@ -137,13 +137,17 @@
       margin-bottom: 1rem;
       letter-spacing: -0.5px;
       font-family: 'Cambria', serif;
-      color: #F5E6D3;
+      color: #4C382A;
     }
 
     .hero-section p,
     .hero-section .text-lg,
     .hero-section .opacity-95 {
-      color: #F8EAD7;
+      color: #5C4636;
+    }
+
+    .hero-section .text-white {
+      color: #6B523F !important;
     }
 
     .profile-card {
@@ -218,7 +222,7 @@
     }
 
     .hero-section h2::after {
-      background: linear-gradient(90deg, #EBD9C2, #D5B79A);
+      background: linear-gradient(90deg, #A57F5F, #8C6A4F);
     }
 
     h3 {
@@ -244,8 +248,8 @@
 
     .badge {
       display: inline-block;
-      background: linear-gradient(135deg, #8B7355, #6F4E37);
-      color: #F5E6D3;
+      background: linear-gradient(135deg, #9A7A5E, #7B5B43);
+      color: #FFF3E6;
       padding: 0.25rem 0.75rem;
       border-radius: 20px;
       font-size: 0.75rem;
@@ -304,8 +308,8 @@
 
     .custom-dropdown-trigger {
       width: 100%;
-      border: 1px solid #c9b8a6;
-      background: linear-gradient(180deg, #fbf2e8 0%, #f3e5d5 100%);
+      border: 1px solid #ccb79f;
+      background: linear-gradient(180deg, #fcf3e8 0%, #f2e3d0 100%);
       border-radius: 0.65rem;
       padding: 0.72rem 0.95rem;
       display: flex;
@@ -389,14 +393,14 @@
 
     .custom-dropdown-item:hover,
     .custom-dropdown-item.active {
-      background: #ead8c2;
+      background: #e6d0b8;
       color: #2c1d14;
     }
 
     .dropdown-option-icon {
       width: 1.1rem;
       text-align: center;
-      color: #3196db;
+      color: #8C6A4F;
       flex-shrink: 0;
     }
 
@@ -410,7 +414,7 @@
     }
 
     .custom-dropdown-menu::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #4da5e3 0%, #2f89c8 100%);
+      background: linear-gradient(180deg, #b18a69 0%, #8f6b4f 100%);
       border-radius: 999px;
     }
 
@@ -505,7 +509,7 @@
     }
 
     .nav-dd-option:hover {
-      background: #ead8c2;
+      background: #e7d2bc;
       color: #2c1d14;
     }
 
@@ -513,11 +517,11 @@
 
     .nav-dd-panel::-webkit-scrollbar { width: 8px; }
     .nav-dd-panel::-webkit-scrollbar-track { background: #ece2d6; border-radius: 999px; }
-    .nav-dd-panel::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4da5e3, #2f89c8); border-radius: 999px; }
+    .nav-dd-panel::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #b18a69, #8f6b4f); border-radius: 999px; }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900">
+<body>
 
 <nav class="sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
@@ -821,6 +825,18 @@ const tupPartsData = [
         <li>Install Active Directory Domain Services (AD DS)</li>
         <li>Configure DNS during promotion</li>
       </ul>
+      <div class="youtube-embed aspect-video bg-black rounded overflow-hidden mt-5">
+        <iframe
+          class="w-full h-full block"
+          src="https://www.youtube-nocookie.com/embed/HofHcsxvXZI"
+          title="TUP Case Study Part 1 Video"
+          frameborder="0"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
     `
   },
   {
