@@ -267,6 +267,148 @@
       background-color: rgba(139, 94, 60, 0.14) !important;
     }
 
+    .case-list {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+
+    .case-list li {
+      margin-bottom: 0.55rem;
+      color: #5B4336;
+    }
+
+    .case-sublist {
+      list-style: circle;
+      padding-left: 1.25rem;
+      margin-top: 0.3rem;
+    }
+
+    .case-sublist li {
+      margin-bottom: 0.35rem;
+      color: #6B5041;
+    }
+
+    .native-select-hidden {
+      display: none;
+    }
+
+    .custom-dropdown {
+      position: relative;
+      width: 100%;
+    }
+
+    .custom-dropdown-trigger {
+      width: 100%;
+      border: 1px solid #c9b8a6;
+      background: linear-gradient(180deg, #fbf2e8 0%, #f3e5d5 100%);
+      border-radius: 0.65rem;
+      padding: 0.72rem 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      color: #4A3328;
+      box-shadow: 0 6px 18px rgba(93, 64, 55, 0.1);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .custom-dropdown-trigger:hover {
+      border-color: #a58670;
+      box-shadow: 0 8px 20px rgba(93, 64, 55, 0.14);
+    }
+
+    .custom-dropdown.open .custom-dropdown-trigger {
+      border-color: #7b5a47;
+      box-shadow: 0 0 0 3px rgba(123, 90, 71, 0.12);
+    }
+
+    .custom-selected-value {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .custom-dropdown-caret {
+      color: #7b5a47;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .custom-dropdown.open .custom-dropdown-caret {
+      transform: rotate(180deg);
+    }
+
+    .custom-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.4rem);
+      left: 0;
+      right: 0;
+      background: #f7f3ef;
+      border: 1px solid #cfc2b4;
+      border-radius: 0.75rem;
+      padding: 0.35rem;
+      box-shadow: 0 16px 32px rgba(53, 32, 21, 0.22);
+      max-height: 320px;
+      overflow-y: auto;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 70;
+    }
+
+    .custom-dropdown.open .custom-dropdown-menu {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .custom-dropdown-item {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #3d2a1f;
+      border-radius: 0.55rem;
+      padding: 0.62rem 0.72rem;
+      display: flex;
+      align-items: center;
+      gap: 0.66rem;
+      text-align: left;
+      font-size: 1.05rem;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .custom-dropdown-item:hover,
+    .custom-dropdown-item.active {
+      background: #ead8c2;
+      color: #2c1d14;
+    }
+
+    .dropdown-option-icon {
+      width: 1.1rem;
+      text-align: center;
+      color: #3196db;
+      flex-shrink: 0;
+    }
+
+    .custom-dropdown-menu::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .custom-dropdown-menu::-webkit-scrollbar-track {
+      background: #ece2d6;
+      border-radius: 999px;
+    }
+
+    .custom-dropdown-menu::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #4da5e3 0%, #2f89c8 100%);
+      border-radius: 999px;
+    }
+
     button[onclick*="showSection"] {
       background: transparent;
       border: none;
@@ -504,117 +646,36 @@
 
 <section id="tup-domain" class="section">
   <div class="max-w-6xl mx-auto px-6 py-12">
-    
     <div class="hero-section text-center">
       <div class="text-white text-5xl mb-4">
         <i class="fas fa-network-wired"></i>
       </div>
-      <h2>TUP-Taguig Domain</h2>
+      <h2>TUP-Taguig Domain Case Study</h2>
       <p class="mt-4 text-lg opacity-95 max-w-2xl mx-auto">
-        Comprehensive configuration and management of the TUP-Taguig network domain for academic laboratory purposes
+        Select a part to view the exact tasks and descriptions for the tupt.edu.ph infrastructure activity.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-      <div class="content-card p-6">
-        <div class="text-4xl mb-4" style="color: #8B7355;">
-          <i class="fas fa-server"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-3">Domain Overview</h3>
-        <p class="text-slate-700">
-          The TUP-Taguig Domain represents the network infrastructure at Technological University of the Philippines, Taguig Campus. It provides centralized authentication and resource management for all networked computers and services.
-        </p>
-      </div>
-
-      <div class="content-card p-6">
-        <div class="text-4xl mb-4" style="color: #8B7355;">
-          <i class="fas fa-lock"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-3">Access Control</h3>
-        <p class="text-slate-700">
-          Active Directory-based authentication ensures secure access to network resources with role-based permissions for students, faculty, and administrators.
-        </p>
-      </div>
-    </div>
-
-    <div class="content-card p-8 mb-6">
-      <h3 class="text-2xl font-bold mb-6" style="color: #5D4037;">Domain Information</h3>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="p-4 bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg border border-amber-200">
-          <p class="text-sm font-semibold mb-2" style="color: #6F4E37;">Domain Name</p>
-          <p class="text-lg font-bold" style="color: #5D4037;">tup-taguig.local</p>
-        </div>
-
-        <div class="p-4 bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg border border-amber-200">
-          <p class="text-sm font-semibold mb-2" style="color: #6F4E37;">Server Location</p>
-          <p class="text-lg font-bold" style="color: #5D4037;">Taguig Campus, Manila</p>
-        </div>
-
-        <div class="p-4 bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg border border-amber-200">
-          <p class="text-sm font-semibold mb-2" style="color: #6F4E37;">Primary Service</p>
-          <p class="text-lg font-bold" style="color: #5D4037;">Active Directory Domain Services</p>
-        </div>
-
-        <div class="p-4 bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg border border-amber-200">
-          <p class="text-sm font-semibold mb-2" style="color: #6F4E37;">Status</p>
-          <p class="text-lg font-bold text-green-700"><i class="fas fa-check-circle"></i> Active</p>
-        </div>
-      </div>
+    <div class="max-w-xl mx-auto mb-6">
+      <label class="block mb-2 font-medium">Select Part</label>
+      <select id="tupPartSelect"
+              onchange="updateTupPartContent()"
+              class="w-full border border-slate-400 px-4 py-2 rounded">
+        <option value="0">Part 1: Domain Controller</option>
+        <option value="1">Part 2: Adding Users</option>
+        <option value="2">Part 3: DHCP Server</option>
+        <option value="3">Part 4: File Sharing</option>
+        <option value="4">Part 5: RAID</option>
+        <option value="5">Part 6: Remote Desktop</option>
+        <option value="6">Part 7: Web Server</option>
+        <option value="7">Part 8: Group Policies</option>
+        <option value="8">Part 9: Windows Deployment</option>
+      </select>
     </div>
 
     <div class="content-card p-8">
-      <h3 class="text-2xl font-bold mb-6" style="color: #5D4037;">Key Services</h3>
-      
-      <div class="space-y-4">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-10 w-10 rounded-lg" style="background-color: rgba(139, 115, 85, 0.1);">
-              <i class="fas fa-users" style="color: #8B7355;"></i>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-2" style="color: #5D4037;">User Management</h4>
-            <p class="text-slate-700">Create, modify, and manage user accounts across the domain with granular permission control.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-10 w-10 rounded-lg" style="background-color: rgba(139, 115, 85, 0.1);">
-              <i class="fas fa-folder-open" style="color: #8B7355;"></i>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-2" style="color: #5D4037;">File Sharing</h4>
-            <p class="text-slate-700">Centralized file server with shared resources, backup policies, and access restrictions.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-10 w-10 rounded-lg" style="background-color: rgba(139, 115, 85, 0.1);">
-              <i class="fas fa-print" style="color: #8B7355;"></i>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-2" style="color: #5D4037;">Printer Management</h4>
-            <p class="text-slate-700">Print server management with queue monitoring and device access controls.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-10 w-10 rounded-lg" style="background-color: rgba(139, 115, 85, 0.1);">
-              <i class="fas fa-shield-alt" style="color: #8B7355;"></i>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-2" style="color: #5D4037;">Group Policies</h4>
-            <p class="text-slate-700">Enforce security policies, system configurations, and software deployments across workstations.</p>
-          </div>
-        </div>
-      </div>
+      <h3 id="tupPartTitle" class="text-2xl font-bold mb-4 text-slate-900">Part 1: Domain Controller</h3>
+      <div id="tupPartDesc" class="text-slate-700"></div>
     </div>
   </div>
 </section>
@@ -653,6 +714,203 @@ const labsData = [
   ["<span class=\"emoji\">🚀</span> Task 8: Implementing Windows Deployment Services", "Set up WDS for automated deployments.", "https://www.youtube-nocookie.com/embed/XXX8"]
 ];
 
+const tupPartsData = [
+  {
+    title: "Part 1: Domain Controller",
+    description: `
+      <ul class="case-list">
+        <li>Install Windows Server 2008</li>
+        <li>Promote server to Domain Controller</li>
+        <li>Configure domain: <strong>tupt.edu.ph</strong></li>
+        <li>Install Active Directory Domain Services (AD DS)</li>
+        <li>Configure DNS during promotion</li>
+      </ul>
+    `
+  },
+  {
+    title: "Part 2: Adding Users",
+    description: `
+      <ul class="case-list">
+        <li>Create Organizational Units (OU) for:
+          <ul class="case-sublist">
+            <li>4 Academic Departments</li>
+            <li>Administrative Offices</li>
+            <li>Each Technology Section / Office</li>
+          </ul>
+        </li>
+        <li>Add domain users:
+          <ul class="case-sublist">
+            <li>Use real student names</li>
+            <li>Assign to correct department/section</li>
+          </ul>
+        </li>
+        <li>Configure:
+          <ul class="case-sublist">
+            <li>Logon restrictions (per department workstation)</li>
+            <li>Password expiration (30 days)</li>
+            <li>Logon hours:
+              <ul class="case-sublist">
+                <li>Academic: 7:30 AM - 8:45 AM</li>
+                <li>Admin: 7:00 AM - 7:00 PM</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: "Part 3: DHCP Server",
+    description: `
+      <ul class="case-list">
+        <li>Configure IP ranges:
+          <ul class="case-sublist">
+            <li>172.31.0.0 /16</li>
+            <li>10.0.0.0 /8</li>
+          </ul>
+        </li>
+        <li>Set:
+          <ul class="case-sublist">
+            <li>Default gateway (router IP)</li>
+            <li>DNS:
+              <ul class="case-sublist">
+                <li>Local server</li>
+                <li>Google DNS</li>
+                <li>OpenDNS</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Exclusions:
+          <ul class="case-sublist">
+            <li>First 30 IPs</li>
+            <li>Last 30 IPs</li>
+          </ul>
+        </li>
+        <li>Lease duration: 8 hours</li>
+      </ul>
+    `
+  },
+  {
+    title: "Part 4: File Sharing",
+    description: `
+      <ul class="case-list">
+        <li>Create shared folders:
+          <ul class="case-sublist">
+            <li>Per department (read/write, restricted access)</li>
+            <li>University public folder (all users)</li>
+            <li>Installer folder (admin only)</li>
+          </ul>
+        </li>
+        <li>File restrictions:
+          <ul class="case-sublist">
+            <li>Office files only (most folders)</li>
+            <li>IT folder: allow all except executable files</li>
+          </ul>
+        </li>
+        <li>Apply:
+          <ul class="case-sublist">
+            <li>Storage quota: 1GB per folder</li>
+            <li>Map network drives on client PCs</li>
+          </ul>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: "Part 5: RAID",
+    description: `
+      <ul class="case-list">
+        <li>Configure:</li>
+        <li>RAID 0 (Striped)</li>
+        <li>RAID 1 (Mirrored)</li>
+        <li>Spanned Volume</li>
+        <li>RAID 5</li>
+      </ul>
+    `
+  },
+  {
+    title: "Part 6: Remote Desktop",
+    description: `
+      <ul class="case-list">
+        <li>Enable Remote Desktop on:</li>
+        <li>All client workstations</li>
+        <li>Configure firewall exceptions</li>
+      </ul>
+    `
+  },
+  {
+    title: "Part 7: Web Server",
+    description: `
+      <ul class="case-list">
+        <li>Install IIS 7</li>
+        <li>Create:
+          <ul class="case-sublist">
+            <li>Main university website</li>
+            <li>Department websites (subdirectories in wwwroot)</li>
+          </ul>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: "Part 8: Group Policies",
+    description: `
+      <ul class="case-list">
+        <li>Apply per department:
+          <ul class="case-sublist">
+            <li>Desktop wallpaper</li>
+          </ul>
+        </li>
+        <li>Security &amp; restrictions:
+          <ul class="case-sublist">
+            <li>Disable Control Panel</li>
+            <li>Disable CMD</li>
+            <li>Disable Task Manager (users only)</li>
+            <li>Deny removable storage</li>
+            <li>Password policies:
+              <ul class="case-sublist">
+                <li>Min length: 12</li>
+                <li>Max age: 42 days</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Account lockout:
+          <ul class="case-sublist">
+            <li>Threshold: 3 attempts</li>
+            <li>Duration: 30 mins</li>
+          </ul>
+        </li>
+        <li>Start menu restrictions:
+          <ul class="case-sublist">
+            <li>Remove Run, Help, Network, etc. (users only)</li>
+          </ul>
+        </li>
+        <li>Internet Explorer:
+          <ul class="case-sublist">
+            <li>Title bar: <strong>tupt.edu.ph</strong></li>
+          </ul>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: "Part 9: Windows Deployment",
+    description: `
+      <ul class="case-list">
+        <li>Install Windows Deployment Services (WDS)</li>
+        <li>Deploy:
+          <ul class="case-sublist">
+            <li>Windows XP (Class A network)</li>
+            <li>Windows 7 (Class B network)</li>
+          </ul>
+        </li>
+      </ul>
+    `
+  }
+];
+
 function updateWindowsContent() {
   const index = document.getElementById("windowsSelect").value;
 
@@ -679,6 +937,163 @@ function updateLabsContent() {
   }, 100);
 }
 
+function updateTupPartContent() {
+  const select = document.getElementById("tupPartSelect");
+  if (!select) return;
+
+  const index = Number(select.value);
+  const part = tupPartsData[index];
+  if (!part) return;
+
+  document.getElementById("tupPartTitle").textContent = part.title;
+  document.getElementById("tupPartDesc").innerHTML = part.description;
+}
+
+function getOptionLabel(option) {
+  const temp = document.createElement("div");
+  temp.innerHTML = option.innerHTML;
+  const label = (temp.textContent || option.textContent || "").replace(/\s+/g, " ").trim();
+  return label;
+}
+
+function getOptionIcon(selectId, index, label) {
+  if (selectId === "windowsSelect") {
+    return label.includes("Server") ? "fa-database" : "fa-windows";
+  }
+
+  if (selectId === "labsSelect") {
+    const labIcons = [
+      "fa-desktop",
+      "fa-users",
+      "fa-globe",
+      "fa-hard-drive",
+      "fa-folder",
+      "fa-server",
+      "fa-gear",
+      "fa-cloud-arrow-up"
+    ];
+    return labIcons[index] || "fa-list-check";
+  }
+
+  if (selectId === "tupPartSelect") {
+    const partIcons = [
+      "fa-server",
+      "fa-user-plus",
+      "fa-network-wired",
+      "fa-folder-tree",
+      "fa-hard-drive",
+      "fa-display",
+      "fa-globe",
+      "fa-sliders",
+      "fa-rocket"
+    ];
+    return partIcons[index] || "fa-list-check";
+  }
+
+  return "fa-circle";
+}
+
+function createCustomDropdown(select) {
+  if (!select || select.dataset.dropdownReady === "true") return;
+
+  select.dataset.dropdownReady = "true";
+  select.classList.add("native-select-hidden");
+
+  const dropdown = document.createElement("div");
+  dropdown.className = "custom-dropdown";
+
+  const trigger = document.createElement("button");
+  trigger.type = "button";
+  trigger.className = "custom-dropdown-trigger";
+  trigger.setAttribute("aria-haspopup", "listbox");
+  trigger.setAttribute("aria-expanded", "false");
+
+  const selectedValue = document.createElement("span");
+  selectedValue.className = "custom-selected-value";
+
+  const caret = document.createElement("i");
+  caret.className = "fas fa-chevron-down custom-dropdown-caret";
+
+  trigger.appendChild(selectedValue);
+  trigger.appendChild(caret);
+
+  const menu = document.createElement("div");
+  menu.className = "custom-dropdown-menu";
+  menu.setAttribute("role", "listbox");
+
+  function renderSelected() {
+    const selectedIndex = select.selectedIndex >= 0 ? select.selectedIndex : 0;
+    const selectedOption = select.options[selectedIndex];
+    if (!selectedOption) return;
+
+    const label = getOptionLabel(selectedOption);
+    const icon = getOptionIcon(select.id, selectedIndex, label);
+    selectedValue.innerHTML = `<i class="fas ${icon} dropdown-option-icon"></i><span>${label}</span>`;
+
+    menu.querySelectorAll(".custom-dropdown-item").forEach((item, idx) => {
+      item.classList.toggle("active", idx === selectedIndex);
+    });
+  }
+
+  function closeDropdown() {
+    dropdown.classList.remove("open");
+    trigger.setAttribute("aria-expanded", "false");
+  }
+
+  function openDropdown() {
+    dropdown.classList.add("open");
+    trigger.setAttribute("aria-expanded", "true");
+  }
+
+  Array.from(select.options).forEach((option, index) => {
+    const label = getOptionLabel(option);
+    const icon = getOptionIcon(select.id, index, label);
+
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "custom-dropdown-item";
+    item.setAttribute("role", "option");
+    item.innerHTML = `<i class="fas ${icon} dropdown-option-icon"></i><span>${label}</span>`;
+
+    item.addEventListener("click", () => {
+      select.value = option.value;
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      renderSelected();
+      closeDropdown();
+    });
+
+    menu.appendChild(item);
+  });
+
+  trigger.addEventListener("click", () => {
+    if (dropdown.classList.contains("open")) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!dropdown.contains(event.target)) {
+      closeDropdown();
+    }
+  });
+
+  select.addEventListener("change", renderSelected);
+
+  dropdown.appendChild(trigger);
+  dropdown.appendChild(menu);
+  select.insertAdjacentElement("afterend", dropdown);
+
+  renderSelected();
+}
+
+function initCustomDropdowns() {
+  createCustomDropdown(document.getElementById("windowsSelect"));
+  createCustomDropdown(document.getElementById("labsSelect"));
+  createCustomDropdown(document.getElementById("tupPartSelect"));
+}
+
 function showSection(id, btn) {
   document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
@@ -695,12 +1110,19 @@ function showSection(id, btn) {
   if (id === "labs") {
     updateLabsContent();
   }
+
+  if (id === "tup-domain") {
+    updateTupPartContent();
+  }
 }
 
 
 window.addEventListener('DOMContentLoaded', () => {
   const firstBtn = document.querySelector('nav button');
   if (firstBtn) firstBtn.classList.add('active-nav');
+
+  initCustomDropdowns();
+  updateTupPartContent();
 });
 </script>
 
