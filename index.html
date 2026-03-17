@@ -562,33 +562,35 @@
   <div class="max-w-6xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-8 text-center">Windows Installation</h2>
 
-    <div class="max-w-md mx-auto mb-6">
-      <label class="block mb-2 font-medium">Select Windows Version</label>
-      <select id="windowsSelect"
-              onchange="updateWindowsContent()"
-              class="w-full border border-slate-400 px-4 py-2 rounded">
-        <option value="0"><i class="fab fa-windows icon"></i>Windows 95</option>
-        <option value="1"><i class="fab fa-windows icon"></i>Windows 98 SE</option>
-        <option value="2"><i class="fab fa-windows icon"></i>Windows ME</option>
-        <option value="3"><i class="fab fa-windows icon"></i>Windows NT</option>
-        <option value="4"><i class="fab fa-windows icon"></i>Windows 2000</option>
-        <option value="5"><i class="fab fa-windows icon"></i>Windows Server 2003</option>
-        <option value="6"><i class="fab fa-windows icon"></i>Windows XP</option>
-        <option value="7"><i class="fab fa-windows icon"></i>Windows Vista</option>
-        <option value="8"><i class="fab fa-windows icon"></i>Windows 7</option>
-        <option value="9"><i class="fab fa-windows icon"></i>Windows Server 2008</option>
-        <option value="10"><i class="fab fa-windows icon"></i>Windows 8.1</option>
-        <option value="11"><i class="fab fa-windows icon"></i>Windows 10</option>
-      </select>
-    </div>
+    <div class="content-card p-8 max-w-2xl mx-auto">
+      <div class="mb-6">
+        <label class="block mb-2 font-medium">Select Windows Version</label>
+        <select id="windowsSelect"
+                onchange="updateWindowsContent()"
+                class="w-full border border-slate-400 px-4 py-2 rounded">
+          <option value="0">Windows 95</option>
+          <option value="1">Windows 98 SE</option>
+          <option value="2">Windows ME</option>
+          <option value="3">Windows NT</option>
+          <option value="4">Windows 2000</option>
+          <option value="5">Windows Server 2003</option>
+          <option value="6">Windows XP</option>
+          <option value="7">Windows Vista</option>
+          <option value="8">Windows 7</option>
+          <option value="9">Windows Server 2008</option>
+          <option value="10">Windows 8.1</option>
+          <option value="11">Windows 10</option>
+        </select>
+      </div>
 
-    <div class="border border-slate-300 rounded p-6">
+      <hr class="border-amber-200 mb-6" />
+
       <h3 id="winTitle" class="text-2xl font-bold mb-4">Windows 95</h3>
       <p id="winDesc" class="mb-6">
         Installing Windows 95 involves booting from DOS and following a guided setup process.
       </p>
 
-      <div class="youtube-embed aspect-video bg-black border border-slate-300 rounded overflow-hidden max-w-md mx-auto">
+      <div class="youtube-embed aspect-video bg-black rounded overflow-hidden mt-4">
         <iframe id="winVideo"
                 class="w-full h-full block"
                 title="Windows Installation Video"
@@ -607,29 +609,31 @@
   <div class="max-w-6xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-bold mb-8 text-center">Laboratory Tasks</h2>
 
-    <div class="max-w-md mx-auto mb-6">
-      <label class="block mb-2 font-medium">Select Activity</label>
-      <select id="labsSelect"
-              onchange="updateLabsContent()"
-              class="w-full border border-slate-400 px-4 py-2 rounded">
-        <option value="0"><i class="fas fa-desktop icon"></i>Task 1: Installation</option>
-        <option value="1"><i class="fas fa-users icon"></i>Task 2: Active Directory: Creating Users</option>
-        <option value="2"><i class="fas fa-globe icon"></i>Task 3: DHCP and Joining Workstations</option>
-        <option value="3"><i class="fas fa-database icon"></i>Task 4: RAID Installation</option>
-        <option value="4"><i class="fas fa-folder icon"></i>Task 5: File Server</option>
-        <option value="5"><i class="fas fa-server icon"></i>Task 6: Web Server</option>
-        <option value="6"><i class="fas fa-cog icon"></i>Task 7: Group Policy Management</option>
-        <option value="7"><i class="fas fa-cloud-upload-alt icon"></i>Task 8: Implementing Windows Deployment Services</option>
-      </select>
-    </div>
+    <div class="content-card p-8 max-w-2xl mx-auto">
+      <div class="mb-6">
+        <label class="block mb-2 font-medium">Select Activity</label>
+        <select id="labsSelect"
+                onchange="updateLabsContent()"
+                class="w-full border border-slate-400 px-4 py-2 rounded">
+          <option value="0">Task 1: Installation</option>
+          <option value="1">Task 2: Active Directory: Creating Users</option>
+          <option value="2">Task 3: DHCP and Joining Workstations</option>
+          <option value="3">Task 4: RAID Installation</option>
+          <option value="4">Task 5: File Server</option>
+          <option value="5">Task 6: Web Server</option>
+          <option value="6">Task 7: Group Policy Management</option>
+          <option value="7">Task 8: Implementing Windows Deployment Services</option>
+        </select>
+      </div>
 
-    <div class="border border-slate-300 rounded p-6">
-      <h3 id="labTitle" class="text-2xl font-bold mb-4">Activity 1: Disk Partitioning</h3>
+      <hr class="border-amber-200 mb-6" />
+
+      <h3 id="labTitle" class="text-2xl font-bold mb-4">Task 1: Installation</h3>
       <p id="labDesc" class="mb-6">
-        Learn to partition a disk using GParted.
+        Walk through OS installation process.
       </p>
 
-      <div class="youtube-embed aspect-video bg-black border border-slate-300 rounded overflow-hidden max-w-md mx-auto">
+      <div class="youtube-embed aspect-video bg-black rounded overflow-hidden mt-4">
         <iframe id="labVideo"
                 class="w-full h-full block"
                 title="Lab Activity Video"
@@ -656,24 +660,26 @@
       </p>
     </div>
 
-    <div class="max-w-xl mx-auto mb-6">
-      <label class="block mb-2 font-medium">Select Part</label>
-      <select id="tupPartSelect"
-              onchange="updateTupPartContent()"
-              class="w-full border border-slate-400 px-4 py-2 rounded">
-        <option value="0">Part 1: Domain Controller</option>
-        <option value="1">Part 2: Adding Users</option>
-        <option value="2">Part 3: DHCP Server</option>
-        <option value="3">Part 4: File Sharing</option>
-        <option value="4">Part 5: RAID</option>
-        <option value="5">Part 6: Remote Desktop</option>
-        <option value="6">Part 7: Web Server</option>
-        <option value="7">Part 8: Group Policies</option>
-        <option value="8">Part 9: Windows Deployment</option>
-      </select>
-    </div>
+    <div class="content-card p-8 max-w-2xl mx-auto">
+      <div class="mb-6">
+        <label class="block mb-2 font-medium">Select Part</label>
+        <select id="tupPartSelect"
+                onchange="updateTupPartContent()"
+                class="w-full border border-slate-400 px-4 py-2 rounded">
+          <option value="0">Part 1: Domain Controller</option>
+          <option value="1">Part 2: Adding Users</option>
+          <option value="2">Part 3: DHCP Server</option>
+          <option value="3">Part 4: File Sharing</option>
+          <option value="4">Part 5: RAID</option>
+          <option value="5">Part 6: Remote Desktop</option>
+          <option value="6">Part 7: Web Server</option>
+          <option value="7">Part 8: Group Policies</option>
+          <option value="8">Part 9: Windows Deployment</option>
+        </select>
+      </div>
 
-    <div class="content-card p-8">
+      <hr class="border-amber-200 mb-6" />
+
       <h3 id="tupPartTitle" class="text-2xl font-bold mb-4 text-slate-900">Part 1: Domain Controller</h3>
       <div id="tupPartDesc" class="text-slate-700"></div>
     </div>
