@@ -303,6 +303,65 @@
       color: #6B5041;
     }
 
+    .tup-hero-tech {
+      background:
+        radial-gradient(circle at 10% 18%, rgba(112, 166, 184, 0.22), transparent 44%),
+        radial-gradient(circle at 88% 80%, rgba(92, 143, 160, 0.2), transparent 42%),
+        linear-gradient(135deg, #E6D2BC 0%, #D6B193 100%);
+      border: 1px solid rgba(108, 126, 136, 0.25);
+    }
+
+    .tech-mocha-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 16% 16%, rgba(111, 170, 186, 0.18), transparent 45%),
+        radial-gradient(circle at 84% 86%, rgba(90, 144, 162, 0.15), transparent 41%),
+        rgba(255, 252, 247, 0.92);
+      border: 1px solid rgba(111, 140, 150, 0.3);
+    }
+
+    .tech-mocha-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(115deg, rgba(131, 95, 73, 0.28) 1px, transparent 1px),
+        linear-gradient(28deg, rgba(110, 163, 182, 0.22) 1px, transparent 1px);
+      background-size: 26px 26px, 36px 36px;
+      opacity: 0.2;
+      mix-blend-mode: multiply;
+    }
+
+    .tech-mocha-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .tech-video-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(114, 149, 166, 0.45);
+      box-shadow: 0 16px 34px rgba(50, 39, 31, 0.24), 0 0 0 1px rgba(154, 126, 104, 0.24) inset;
+      background: linear-gradient(145deg, rgba(37, 55, 65, 0.9), rgba(23, 36, 43, 0.95));
+    }
+
+    .tech-video-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(90deg, transparent 0%, rgba(132, 189, 208, 0.2) 50%, transparent 100%);
+      transform: translateX(-100%);
+      animation: scanline 6s linear infinite;
+    }
+
+    @keyframes scanline {
+      to { transform: translateX(100%); }
+    }
+
     .native-select-hidden {
       display: none;
     }
@@ -769,7 +828,7 @@
 
 <section id="tup-domain" class="section">
   <div class="max-w-6xl mx-auto px-6 py-12">
-    <div class="hero-section text-center">
+    <div class="hero-section tup-hero-tech text-center">
       <div class="text-white text-5xl mb-4">
         <i class="fas fa-network-wired"></i>
       </div>
@@ -779,12 +838,12 @@
       </p>
     </div>
 
-    <div class="content-card p-8">
+    <div class="content-card tech-mocha-panel p-8">
       <h3 id="tupPartTitle" class="text-2xl font-bold mb-3 text-slate-900">Part 1: Domain Controller</h3>
       <p id="tupPartLead" class="text-slate-700 mb-4">Set up the tupt.edu.ph domain controller and core Active Directory services.</p>
       <div id="tupPartDesc" class="text-slate-700 mb-6"></div>
 
-      <div id="tupVideoWrap" class="youtube-embed aspect-video bg-black rounded overflow-hidden mt-4 hidden">
+      <div id="tupVideoWrap" class="youtube-embed tech-video-shell aspect-video bg-black rounded overflow-hidden mt-4 hidden">
         <iframe id="tupVideo"
                 class="w-full h-full block"
                 title="TUP Case Study Video"
@@ -851,6 +910,7 @@ const tupPartsData = [
   {
     title: "Part 2: Adding Users",
     lead: "Create user structures and access controls for departments and offices.",
+    video: "https://www.youtube-nocookie.com/embed/s_t9URcum2o",
     description: `
       <ul class="case-list">
         <li>Create Organizational Units (OU) for:
