@@ -14,11 +14,28 @@
       scroll-behavior: smooth;
     }
 
+    :root {
+      --mocha-ink: #2A1E16;
+      --mocha-text: #5D4037;
+      --tech-blue-soft: rgba(82, 145, 184, 0.2);
+      --tech-blue-deep: rgba(35, 76, 122, 0.22);
+      --tech-grid-line: rgba(68, 116, 154, 0.1);
+    }
+
     body {
       font-family: 'Cambria', 'Garamond', serif;
-      background: linear-gradient(135deg, #F7EFE4 0%, #EDE1D1 100%);
+      background-color: #EDE1D1;
+      background-image:
+        linear-gradient(var(--tech-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--tech-grid-line) 1px, transparent 1px),
+        radial-gradient(circle at 14% 20%, var(--tech-blue-soft), transparent 36%),
+        radial-gradient(circle at 86% 14%, rgba(54, 99, 141, 0.16), transparent 34%),
+        linear-gradient(145deg, rgba(110, 76, 54, 0.07) 0%, rgba(58, 108, 147, 0.08) 100%),
+        linear-gradient(135deg, #F7EFE4 0%, #EDE1D1 100%);
+      background-size: 44px 44px, 44px 44px, auto, auto, auto, auto;
+      background-attachment: fixed;
       min-height: 100vh;
-      color: #5D4037;
+      color: var(--mocha-text);
     }
 
     .section p {
@@ -41,7 +58,9 @@
     }
 
     nav {
-      background: linear-gradient(90deg, #FAF4EB 0%, #EFE3D3 100%);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(107, 168, 198, 0.18), transparent 34%),
+        linear-gradient(90deg, #FAF4EB 0%, #EFE3D3 100%);
       box-shadow: 0 2px 15px rgba(93, 64, 55, 0.12);
       border-bottom: 1px solid rgba(131, 101, 72, 0.15);
     }
@@ -100,7 +119,7 @@
 
     /* icon styling */
     .icon {
-      color: #6F4E37;
+      color: #111111;
       width: 1em;
       height: 1em;
       display: inline-block;
@@ -112,24 +131,46 @@
     .content-card {
       background: rgba(255, 252, 247, 0.9);
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(93, 64, 55, 0.15);
+      box-shadow: 0 8px 24px rgba(93, 64, 55, 0.14), 0 0 0 1px rgba(78, 131, 166, 0.1) inset;
       transition: all 0.3s ease;
       border: 1px solid rgba(176, 145, 113, 0.3);
     }
 
     .content-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 32px rgba(93, 64, 55, 0.18);
+      box-shadow: 0 12px 32px rgba(93, 64, 55, 0.18), 0 0 0 1px rgba(69, 120, 157, 0.16) inset;
       background: rgba(255, 250, 243, 0.98);
     }
 
     .hero-section {
-      background: linear-gradient(135deg, #E8D7C2 0%, #D6B89B 100%);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 24%, rgba(120, 180, 205, 0.22), transparent 42%),
+        radial-gradient(circle at 86% 80%, var(--tech-blue-deep), transparent 42%),
+        linear-gradient(135deg, #E8D7C2 0%, #D6B89B 100%);
       color: #443226;
       border-radius: 16px;
       padding: 3rem;
       margin-bottom: 2rem;
       box-shadow: 0 10px 34px rgba(111, 78, 55, 0.2);
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(112deg, rgba(53, 98, 142, 0.24) 1px, transparent 1px),
+        linear-gradient(24deg, rgba(131, 95, 73, 0.22) 1px, transparent 1px);
+      background-size: 34px 34px, 56px 56px;
+      opacity: 0.22;
+    }
+
+    .hero-section > * {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-section h2 {
@@ -148,7 +189,7 @@
     }
 
     .hero-section .text-white {
-      color: #6B523F !important;
+      color: #111111 !important;
     }
 
     .profile-card {
@@ -267,7 +308,7 @@
     .text-blue-600,
     .text-green-600,
     .text-orange-600 {
-      color: #8A6A50 !important;
+      color: #111111 !important;
     }
 
     .bg-purple-100,
@@ -305,8 +346,9 @@
 
     .tup-hero-tech {
       background:
-        radial-gradient(circle at 10% 18%, rgba(112, 166, 184, 0.22), transparent 44%),
-        radial-gradient(circle at 88% 80%, rgba(92, 143, 160, 0.2), transparent 42%),
+        radial-gradient(circle at 10% 20%, rgba(129, 191, 216, 0.28), transparent 42%),
+        radial-gradient(circle at 90% 12%, rgba(52, 101, 149, 0.24), transparent 30%),
+        linear-gradient(160deg, rgba(28, 68, 112, 0.16) 0%, rgba(28, 68, 112, 0) 34%),
         linear-gradient(135deg, #E6D2BC 0%, #D6B193 100%);
       border: 1px solid rgba(108, 126, 136, 0.25);
     }
@@ -315,8 +357,9 @@
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 16% 16%, rgba(111, 170, 186, 0.18), transparent 45%),
-        radial-gradient(circle at 84% 86%, rgba(90, 144, 162, 0.15), transparent 41%),
+        radial-gradient(circle at 16% 16%, rgba(129, 188, 209, 0.22), transparent 45%),
+        radial-gradient(circle at 84% 86%, rgba(52, 98, 140, 0.18), transparent 41%),
+        linear-gradient(145deg, rgba(35, 82, 125, 0.08), rgba(131, 95, 73, 0.08)),
         rgba(255, 252, 247, 0.92);
       border: 1px solid rgba(111, 140, 150, 0.3);
     }
@@ -465,8 +508,13 @@
     .dropdown-option-icon {
       width: 1.1rem;
       text-align: center;
-      color: #7C5F48;
+      color: #111111;
       flex-shrink: 0;
+    }
+
+    .nav-dd-caret,
+    .custom-dropdown-caret {
+      color: #111111;
     }
 
     .custom-dropdown-menu::-webkit-scrollbar {
@@ -777,16 +825,24 @@
 </section>
 
 <section id="windows" class="section">
-  <div class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold mb-8 text-center">Windows Installation</h2>
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="hero-section tup-hero-tech text-center">
+      <div class="text-white text-5xl mb-4">
+        <i class="fab fa-windows"></i>
+      </div>
+      <h2>Windows Installation</h2>
+      <p class="mt-4 text-lg opacity-95 max-w-2xl mx-auto">
+        Use the top menu dropdown to switch Windows versions and view each installation description with its matching video guide.
+      </p>
+    </div>
 
-    <div class="content-card p-8">
+    <div class="content-card tech-mocha-panel p-8">
       <h3 id="winTitle" class="text-2xl font-bold mb-4">Windows 95</h3>
       <p id="winDesc" class="mb-6">
         Installing Windows 95 involves booting from DOS and following a guided setup process.
       </p>
 
-      <div class="youtube-embed aspect-video bg-black rounded overflow-hidden mt-4">
+      <div class="youtube-embed tech-video-shell aspect-video bg-black rounded overflow-hidden mt-4">
         <iframe id="winVideo"
                 class="w-full h-full block"
                 title="Windows Installation Video"
@@ -802,16 +858,24 @@
 </section>
 
 <section id="labs" class="section">
-  <div class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold mb-8 text-center">Laboratory Tasks</h2>
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="hero-section tup-hero-tech text-center">
+      <div class="text-white text-5xl mb-4">
+        <i class="fas fa-flask"></i>
+      </div>
+      <h2>Laboratory Activities</h2>
+      <p class="mt-4 text-lg opacity-95 max-w-2xl mx-auto">
+        Use the top menu dropdown to open each activity and review the exact task description alongside its walkthrough video.
+      </p>
+    </div>
 
-    <div class="content-card p-8">
+    <div class="content-card tech-mocha-panel p-8">
       <h3 id="labTitle" class="text-2xl font-bold mb-4">Task 1: Installation</h3>
       <p id="labDesc" class="mb-6">
         Walk through OS installation process.
       </p>
 
-      <div class="youtube-embed aspect-video bg-black rounded overflow-hidden mt-4">
+      <div class="youtube-embed tech-video-shell aspect-video bg-black rounded overflow-hidden mt-4">
         <iframe id="labVideo"
                 class="w-full h-full block"
                 title="Lab Activity Video"
@@ -867,29 +931,29 @@
 
 <script>
 const windowsData = [
-  ["<i class='fab fa-windows icon'></i>Windows 95", "Installing Windows 95 involves booting from DOS and running setup.", "https://www.youtube-nocookie.com/embed/vpp35T0ac1Q"],
-  ["<i class='fab fa-windows icon'></i>Windows 98 SE", "Windows 98 SE improves USB and hardware detection.", "https://www.youtube-nocookie.com/embed/5vX4l28YZhY"],
-  ["<i class='fab fa-windows icon'></i>Windows ME", "Windows ME focuses on home user installation.", "https://www.youtube-nocookie.com/embed/muOEgmR3FZU"],
-  ["<i class='fab fa-windows icon'></i>Windows NT", "Windows NT emphasizes stability and security.", "https://www.youtube-nocookie.com/embed/ffYG_Jk_evk"],
-  ["<i class='fab fa-windows icon'></i>Windows 2000", "Windows 2000 refines NT technology.", "https://www.youtube-nocookie.com/embed/Be3wU99qxMc"],
-  ["<i class='fab fa-windows icon'></i>Windows Server 2003", "Server 2003 focuses on network roles.", "https://www.youtube-nocookie.com/embed/3yET4Ze2TeY"],
-  ["<i class='fab fa-windows icon'></i>Windows XP", "Windows XP offers a simple guided setup.", "https://www.youtube-nocookie.com/embed/2NAhKOHA74Y"],
-  ["<i class='fab fa-windows icon'></i>Windows Vista", "Vista introduces a modern setup interface.", "https://www.youtube-nocookie.com/embed/kVO1_dit59I"],
-  ["<i class='fab fa-windows icon'></i>Windows 7", "Windows 7 improves speed and reliability.", "https://www.youtube-nocookie.com/embed/EZQjyn7cW-A"],
-  ["<i class='fab fa-windows icon'></i>Windows Server 2008", "Server 2008 enhances security and roles.", "https://www.youtube-nocookie.com/embed/A68ws9xDRic"],
-  ["<i class='fab fa-windows icon'></i>Windows 8.1", "Windows 8.1 adds touch-friendly setup.", "https://www.youtube-nocookie.com/embed/TO6IwKFGrA0"],
-  ["<i class='fab fa-windows icon'></i>Windows 10", "Windows 10 automates updates and setup.", "https://www.youtube-nocookie.com/embed/UCAe7hpMlJY"]
+  ["<i class='fab fa-windows icon'></i>Windows 95", "For Windows 95, boot to MS-DOS with startup disk or CD support, run SETUP, and let the installer copy core files to a FAT partition. After reboot, finish hardware detection, enter regional and user settings, and install essential drivers before reaching the desktop.", "https://www.youtube-nocookie.com/embed/vpp35T0ac1Q"],
+  ["<i class='fab fa-windows icon'></i>Windows 98 SE", "Start from a bootable CD or startup floppy with CD-ROM support, run setup, and choose or create a FAT32 partition for installation. The setup process copies files, restarts several times, then configures devices, network options, and drivers to complete the system.", "https://www.youtube-nocookie.com/embed/5vX4l28YZhY"],
+  ["<i class='fab fa-windows icon'></i>Windows ME", "Boot from Windows ME media, launch setup in DOS mode, and select either upgrade or clean install on a compatible FAT32 partition. The wizard automates most steps, then reboots and finalizes Plug and Play hardware detection, user details, and basic system configuration.", "https://www.youtube-nocookie.com/embed/muOEgmR3FZU"],
+  ["<i class='fab fa-windows icon'></i>Windows NT", "Begin Windows NT installation using setup disks or a bootable CD, create the system partition, and format it with NTFS for better security and reliability. Text mode setup copies files first, then GUI setup continues with locale, product key, administrator password, and workgroup or domain setup.", "https://www.youtube-nocookie.com/embed/ffYG_Jk_evk"],
+  ["<i class='fab fa-windows icon'></i>Windows 2000", "Boot from the Windows 2000 CD, enter text mode setup, and create or select a target partition that is usually formatted as NTFS. After initial file copy and restart, graphical setup completes product key entry, network configuration, and hardware driver initialization.", "https://www.youtube-nocookie.com/embed/Be3wU99qxMc"],
+  ["<i class='fab fa-windows icon'></i>Windows Server 2003", "Install from Server 2003 media, prepare disk partitions, and use NTFS so server features can be configured with proper permissions. After setup and reboot, set administrator credentials, configure networking, and then add roles such as Active Directory, DNS, or file services.", "https://www.youtube-nocookie.com/embed/3yET4Ze2TeY"],
+  ["<i class='fab fa-windows icon'></i>Windows XP", "Boot from the Windows XP CD, use text mode setup to create or choose a partition, and format it as NTFS or FAT32 depending on requirements. Once files are copied and the PC restarts, complete the setup wizard for key, timezone, network settings, and user accounts.", "https://www.youtube-nocookie.com/embed/2NAhKOHA74Y"],
+  ["<i class='fab fa-windows icon'></i>Windows Vista", "Launch setup from Vista DVD, choose language and edition, then use custom install for a clean deployment to a formatted partition. The installer automatically expands and configures files, then asks for account, security, and update preferences before first desktop login.", "https://www.youtube-nocookie.com/embed/kVO1_dit59I"],
+  ["<i class='fab fa-windows icon'></i>Windows 7", "Start from Windows 7 DVD or USB, select custom installation, and create or format the destination partition before setup proceeds. After several automatic restarts, complete the final prompts for product key, update policy, user profile, and network location.", "https://www.youtube-nocookie.com/embed/EZQjyn7cW-A"],
+  ["<i class='fab fa-windows icon'></i>Windows Server 2008", "Boot from Server 2008 installation media, choose the desired server edition, and install to an NTFS partition using full or core mode as needed. After the first sign-in, finish initial server configuration by setting IP details, admin policies, and required infrastructure roles.", "https://www.youtube-nocookie.com/embed/A68ws9xDRic"],
+  ["<i class='fab fa-windows icon'></i>Windows 8.1", "Install Windows 8.1 from USB or DVD, choose language and keyboard, then select clean install and the target partition. Setup deploys files quickly, reboots automatically, and finishes through out-of-box setup for account sign-in, privacy options, and network preferences.", "https://www.youtube-nocookie.com/embed/TO6IwKFGrA0"],
+  ["<i class='fab fa-windows icon'></i>Windows 10", "Boot from a Windows 10 USB created with Media Creation Tool, select install now, and choose upgrade or custom install based on your goal. The installer copies files and applies features in stages, then completes with account setup, privacy choices, updates, and desktop initialization.", "https://www.youtube-nocookie.com/embed/UCAe7hpMlJY"]
 ];
 
 const labsData = [
-  ["<span class=\"emoji\">🖥️</span> Task 1: Installation", "Walk through OS installation process.", "https://www.youtube-nocookie.com/embed/XXX1"],
-  ["<span class=\"emoji\">👥</span> Task 2: Active Directory: Creating Users", "Create and manage user accounts in AD.", "https://www.youtube-nocookie.com/embed/XXX2"],
-  ["<span class=\"emoji\">🌐</span> Task 3: DHCP and Joining Workstations", "Configure DHCP and connect workstations.", "https://www.youtube-nocookie.com/embed/XXX3"],
-  ["<span class=\"emoji\">💾</span> Task 4: RAID Installation", "Set up RAID configurations for redundancy.", "https://www.youtube-nocookie.com/embed/XXX4"],
-  ["<span class=\"emoji\">📁</span> Task 5: File Server", "Install and configure a file server.", "https://www.youtube-nocookie.com/embed/XXX5"],
-  ["<span class=\"emoji\">🌐</span> Task 6: Web Server", "Deploy a web server using IIS.", "https://www.youtube-nocookie.com/embed/XXX6"],
-  ["<span class=\"emoji\">⚙️</span> Task 7: Group Policy Management", "Implement policies across the domain.", "https://www.youtube-nocookie.com/embed/XXX7"],
-  ["<span class=\"emoji\">🚀</span> Task 8: Implementing Windows Deployment Services", "Set up WDS for automated deployments.", "https://www.youtube-nocookie.com/embed/XXX8"]
+  ["<i class='fas fa-desktop icon'></i>Task 1: Installation", "Walk through OS installation process.", "https://www.youtube-nocookie.com/embed/XXX1"],
+  ["<i class='fas fa-users icon'></i>Task 2: Active Directory: Creating Users", "Create and manage user accounts in AD.", "https://www.youtube-nocookie.com/embed/XXX2"],
+  ["<i class='fas fa-globe icon'></i>Task 3: DHCP and Joining Workstations", "Configure DHCP and connect workstations.", "https://www.youtube-nocookie.com/embed/XXX3"],
+  ["<i class='fas fa-hard-drive icon'></i>Task 4: RAID Installation", "Set up RAID configurations for redundancy.", "https://www.youtube-nocookie.com/embed/XXX4"],
+  ["<i class='fas fa-folder icon'></i>Task 5: File Server", "Install and configure a file server.", "https://www.youtube-nocookie.com/embed/XXX5"],
+  ["<i class='fas fa-server icon'></i>Task 6: Web Server", "Deploy a web server using IIS.", "https://www.youtube-nocookie.com/embed/XXX6"],
+  ["<i class='fas fa-gear icon'></i>Task 7: Group Policy Management", "Implement policies across the domain.", "https://www.youtube-nocookie.com/embed/XXX7"],
+  ["<i class='fas fa-cloud-arrow-up icon'></i>Task 8: Implementing Windows Deployment Services", "Set up WDS for automated deployments.", "https://www.youtube-nocookie.com/embed/XXX8"]
 ];
 
 const tupPartsData = [
